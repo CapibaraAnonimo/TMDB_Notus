@@ -25,7 +25,6 @@ import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 
 // components for views and layouts
-
 import { AdminNavbarComponent } from "./components/navbars/admin-navbar/admin-navbar.component";
 import { AuthNavbarComponent } from "./components/navbars/auth-navbar/auth-navbar.component";
 import { CardBarChartComponent } from "./components/cards/card-bar-chart/card-bar-chart.component";
@@ -48,7 +47,10 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogDetailsMovieComponent } from "./components/movies/dialog-details-movie/dialog-details-movie.component";
+import { MovieListComponent } from "./components/movies/movie-list/movie-list.component";
+import { OneMovieComponent } from "./components/movies/one-movie/one-movie.component";
+import { DialogAddMovieComponent } from "./components/movies/dialog-add-movie/dialog-add-movie.component";
 
 @NgModule({
   declarations: [
@@ -86,14 +88,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    OneMovieComponent,
+    DialogAddMovieComponent,
+    MovieListComponent,
+    DialogDetailsMovieComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

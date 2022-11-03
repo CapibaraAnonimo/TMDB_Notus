@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CreateSessionResponse } from '../interfaces/create-session.interface';
-import { DeleteSessionResponse } from '../interfaces/delete-session.interface';
-import { RequestTokenResponse } from '../interfaces/request-token.interface';
+import { CreateSessionResponse } from '../models/interfaces/authentication/create-session.interface';
+import { DeleteSessionResponse } from '../models/interfaces/authentication/delete-session.interface';
+import { RequestTokenResponse } from '../models/interfaces/authentication/request-token.interface';
 import { CreateSessionDto } from '../models/dto/create-session.dto';
 import { DeleteSessionDto } from '../models/dto/delete-session.dto';
 

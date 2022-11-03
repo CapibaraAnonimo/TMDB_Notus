@@ -1,0 +1,14 @@
+img {
+    width: 250px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+div {
+    font-size: 0.85em;
+    text-align: justify;
+}
