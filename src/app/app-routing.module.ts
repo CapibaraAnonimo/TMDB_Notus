@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { MovieListComponent } from "./components/movies/movie-list/movie-list.component";
 
 // layouts
 import { AdminComponent } from './layouts/admin/admin.component';
@@ -28,11 +29,12 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'settings', component: SettingsComponent },
-      { path: 'tables', component: TablesComponent },
-      { path: 'maps', component: MapsComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "settings", component: SettingsComponent },
+      { path: "tables", component: TablesComponent },
+      { path: "maps", component: MapsComponent },
+      { path: "movies", component: MovieListComponent },
+      { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
   // auth views

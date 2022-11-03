@@ -1,18 +1,32 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { MovieNowPlayingResponse } from '../models/interfaces/movie/movie-now-playing.interface';
+import { MovieTopRatedResponse } from '../models/interfaces/movie/movie-top-rated.interface';
+import { MovieResponse } from '../models/interfaces/movie/movie.interface';
 import {FilmResponse} from '../interfaces/movie.interface';
-import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
+
+  public getMovieList(page: number): Observable<MovieResponse> {
+    return this.http.get<MovieResponse>(`${environment.API_BASE_URL}/movie/popular?api_key=${environment.API_KEY_M}&page=${page}`)
   }
 
-  getPopular(page: number = 1): Observable<FilmResponse> {
-    return this.http.get<FilmResponse>(`${environment.baseUrl}/movie/popular?api_key=${environment.apiKey}&page=${page}`)
+  public getMovieDetails(movieId: number): Observable<MovieResponse> {
+    return this.http.get<MovieResponse>(`${environment.API_BASE_URL}/movie/${movieId}?api_key=${environment.API_KEY_M}`)
+  }
+
+  public getMovieListNowPlaying(page: number): Observable<MovieNowPlayingResponse> {
+    return this.http.get<MovieNowPlayingResponse>(`${environment.API_BASE_URL}/movie/now_playing?api_key=${environment.API_KEY_M}&page=${page}`)
+  }
+
+  public getMovieListTopRated(page: number): Observable<MovieTopRatedResponse> {
+    return this.http.get<MovieTopRatedResponse>(`${environment.API_BASE_URL}/movie/top_rated?api_key=${environment.API_KEY_M}&page=${page}`)
   }
 }

@@ -22,7 +22,7 @@ export class UserDropdownComponent implements AfterViewInit {
   userName = '';
   img = '';
   session = new CreateSessionDto();
-  loginIcon = "https://cdn-icons-png.flaticon.com/512/152/152533.png";
+  loginIcon = "https://cdn-icons-png.flaticon.com/512/6177/6177784.png";
 
   constructor(private route: ActivatedRoute, private router: Router, private authService: LoginAuthService, private accountService: AccountService) { }
 
@@ -80,7 +80,7 @@ export class UserDropdownComponent implements AfterViewInit {
     this.authService.createRequestToken().subscribe(resp => {
       this.reqToken = resp.request_token;
       console.log(this.reqToken);
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin/dashboard`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin`;
     });
   }
 
@@ -92,7 +92,7 @@ export class UserDropdownComponent implements AfterViewInit {
         if (resp.success) {
           localStorage.removeItem('session_id');
           this.login = false;
-          this.router.navigate(['/home']);
+          this.router.navigate(['/admin']);
         }
       });
     }

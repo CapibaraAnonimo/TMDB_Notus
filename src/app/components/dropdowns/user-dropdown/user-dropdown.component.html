@@ -1,29 +1,27 @@
-<a class="text-blueGray-500 block" (click)="login? toggleDropdown($event) : requestToken()" #btnDropdownRef>
+<button class="text-blueGray-500 block" (click)="login? toggleDropdown($event) : requestToken()" #btnDropdownRef>
   <div class="items-center flex">
     <span class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
-      <img alt="Foto de perfil de usuario" class="w-full rounded-full align-middle border-none shadow-lg"
-      src="{{login? img : loginIcon}}" />
+      <img alt="Foto de perfil de usuario" [ngClass]= "login? 'w-full rounded-full align-middle border-none shadow-lg' :  '' "
+        src="{{login? img : loginIcon}}" />
     </span>
   </div>
-</a>
+</button>
 
 <div class="min-w-48 z-50" #popoverDropdownRef>
   <div class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
-    
-  [ngClass]="dropdownPopoverShow ? 'block' : 'hidden'">
+    [ngClass]="dropdownPopoverShow ? 'block' : 'hidden'">
 
-    <a href="#pablo"
-      class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
-      Ver listas
-    </a>
+    <button class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+      Mis listas
+    </button>
 
-    <a href="#pablo"
-      class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
-      Crear una lista
-    </a>
+    <button class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+      Crear lista
+    </button>
 
     <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
-    <a (click)="closeSession()"
-      class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Cerrar sesión</a>
+    <button (click)="closeSession()"
+      class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Cerrar
+      sesión</button>
   </div>
 </div>

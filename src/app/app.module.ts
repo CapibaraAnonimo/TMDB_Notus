@@ -24,6 +24,32 @@ import {LandingComponent} from "./views/landing/landing.component";
 import {ProfileComponent} from "./views/profile/profile.component";
 
 // components for views and layouts
+import { AdminNavbarComponent } from "./components/navbars/admin-navbar/admin-navbar.component";
+import { AuthNavbarComponent } from "./components/navbars/auth-navbar/auth-navbar.component";
+import { CardBarChartComponent } from "./components/cards/card-bar-chart/card-bar-chart.component";
+import { CardLineChartComponent } from "./components/cards/card-line-chart/card-line-chart.component";
+import { CardPageVisitsComponent } from "./components/cards/card-page-visits/card-page-visits.component";
+import { CardProfileComponent } from "./components/cards/card-profile/card-profile.component";
+import { CardSettingsComponent } from "./components/cards/card-settings/card-settings.component";
+import { CardSocialTrafficComponent } from "./components/cards/card-social-traffic/card-social-traffic.component";
+import { CardStatsComponent } from "./components/cards/card-stats/card-stats.component";
+import { CardTableComponent } from "./components/cards/card-table/card-table.component";
+import { FooterAdminComponent } from "./components/footers/footer-admin/footer-admin.component";
+import { FooterComponent } from "./components/footers/footer/footer.component";
+import { FooterSmallComponent } from "./components/footers/footer-small/footer-small.component";
+import { HeaderStatsComponent } from "./components/headers/header-stats/header-stats.component";
+import { IndexNavbarComponent } from "./components/navbars/index-navbar/index-navbar.component";
+import { MapExampleComponent } from "./components/maps/map-example/map-example.component";
+import { IndexDropdownComponent } from "./components/dropdowns/index-dropdown/index-dropdown.component";
+import { TableDropdownComponent } from "./components/dropdowns/table-dropdown/table-dropdown.component";
+import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pages-dropdown.component";
+import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
+import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
+import { DialogDetailsMovieComponent } from "./components/movies/dialog-details-movie/dialog-details-movie.component";
+import { MovieListComponent } from "./components/movies/movie-list/movie-list.component";
+import { OneMovieComponent } from "./components/movies/one-movie/one-movie.component";
+import { DialogAddMovieComponent } from "./components/movies/dialog-add-movie/dialog-add-movie.component";
 
 import {AdminNavbarComponent} from "./components/navbars/admin-navbar/admin-navbar.component";
 import {AuthNavbarComponent} from "./components/navbars/auth-navbar/auth-navbar.component";
@@ -88,6 +114,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    OneMovieComponent,
+    DialogAddMovieComponent,
+    MovieListComponent,
+    DialogDetailsMovieComponent
     CardFilmsComponent,
     FilmListComponent,
   ],
@@ -101,4 +131,4 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
