@@ -36,19 +36,21 @@ import {CardSocialTrafficComponent} from "./components/cards/card-social-traffic
 import {CardStatsComponent} from "./components/cards/card-stats/card-stats.component";
 import {CardTableComponent} from "./components/cards/card-table/card-table.component";
 import {FooterAdminComponent} from "./components/footers/footer-admin/footer-admin.component";
-import {FooterComponent} from "./components/footers/footer/footer.component";
-import {FooterSmallComponent} from "./components/footers/footer-small/footer-small.component";
-import {HeaderStatsComponent} from "./components/headers/header-stats/header-stats.component";
-import {IndexNavbarComponent} from "./components/navbars/index-navbar/index-navbar.component";
-import {MapExampleComponent} from "./components/maps/map-example/map-example.component";
-import {IndexDropdownComponent} from "./components/dropdowns/index-dropdown/index-dropdown.component";
-import {TableDropdownComponent} from "./components/dropdowns/table-dropdown/table-dropdown.component";
-import {PagesDropdownComponent} from "./components/dropdowns/pages-dropdown/pages-dropdown.component";
-import {NotificationDropdownComponent} from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
-import {SidebarComponent} from "./components/sidebar/sidebar.component";
-import {UserDropdownComponent} from "./components/dropdowns/user-dropdown/user-dropdown.component";
-import {HttpClientModule} from "@angular/common/http";
+import {FooterComponent} from './components/footers/footer/footer.component';
+import {FooterSmallComponent} from './components/footers/footer-small/footer-small.component';
+import {HeaderStatsComponent} from './components/headers/header-stats/header-stats.component';
+import {IndexNavbarComponent} from './components/navbars/index-navbar/index-navbar.component';
+import {MapExampleComponent} from './components/maps/map-example/map-example.component';
+import {IndexDropdownComponent} from './components/dropdowns/index-dropdown/index-dropdown.component';
+import {TableDropdownComponent} from './components/dropdowns/table-dropdown/table-dropdown.component';
+import {PagesDropdownComponent} from './components/dropdowns/pages-dropdown/pages-dropdown.component';
+import {NotificationDropdownComponent} from './components/dropdowns/notification-dropdown/notification-dropdown.component';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import {UserDropdownComponent} from './components/dropdowns/user-dropdown/user-dropdown.component';
+import {HttpClientModule} from '@angular/common/http';
 import { CardFilmsComponent } from './components/cards/card-films/card-films.component';
+import { FilmListComponent } from './components/lists/film-list/film-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -87,11 +89,13 @@ import { CardFilmsComponent } from './components/cards/card-films/card-films.com
     LandingComponent,
     ProfileComponent,
     CardFilmsComponent,
+    FilmListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
