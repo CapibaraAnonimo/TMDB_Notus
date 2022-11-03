@@ -120,6 +120,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DialogDetailsMovieComponent
     CardFilmsComponent,
     FilmListComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
