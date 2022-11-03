@@ -47,10 +47,6 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-import { DialogDetailsMovieComponent } from "./components/movies/dialog-details-movie/dialog-details-movie.component";
-import { MovieListComponent } from "./components/movies/movie-list/movie-list.component";
-import { OneMovieComponent } from "./components/movies/one-movie/one-movie.component";
-import { DialogAddMovieComponent } from "./components/movies/dialog-add-movie/dialog-add-movie.component";
 
 @NgModule({
   declarations: [
@@ -87,11 +83,7 @@ import { DialogAddMovieComponent } from "./components/movies/dialog-add-movie/di
     RegisterComponent,
     IndexComponent,
     LandingComponent,
-    ProfileComponent,
-    OneMovieComponent,
-    DialogAddMovieComponent,
-    MovieListComponent,
-    DialogDetailsMovieComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
