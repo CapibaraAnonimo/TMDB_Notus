@@ -1,5 +1,8 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from '@angular/common/http';
 
 import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
@@ -22,6 +25,9 @@ import {RegisterComponent} from "./views/auth/register/register.component";
 import {IndexComponent} from "./views/index/index.component";
 import {LandingComponent} from "./views/landing/landing.component";
 import {ProfileComponent} from "./views/profile/profile.component";
+import { IndexComponent } from "./views/index/index.component";
+import { LandingComponent } from "./views/landing/landing.component";
+import { ProfileComponent } from "./views/profile/profile.component";
 
 // components for views and layouts
 import { AdminNavbarComponent } from "./components/navbars/admin-navbar/admin-navbar.component";
