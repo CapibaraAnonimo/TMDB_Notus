@@ -1,0 +1,21 @@
+<div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+  <div class="flex-auto p-4">
+    <div class="flex flex-wrap">
+      <div class="relative w-full pr-4 max-w-full flex justify-between flex-grow flex-1">
+        <div class="w-10/12">
+          <span class="font-semibold text-2xl text-blueGray-700">
+          {{film.title}}
+          </span>
+          <h5 class="text-blueGray-400 uppercase font-bold text-s">
+            {{film.release_date}}
+          </h5>
+        </div>
+        <h5 class="text-blueGray-800 uppercase font-bold text-xl">
+          {{film.vote_average*10}}%
+        </h5>
+        <i class="fa-solid fa-ellipsis"></i>
+      </div>
+      <img [src]=getImage() alt="{{film.title}} poster">
+    </div>
+  </div>
+</div>
