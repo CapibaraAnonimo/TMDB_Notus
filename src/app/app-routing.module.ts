@@ -21,23 +21,6 @@ import { LandingComponent } from './views/landing/landing.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import {CardFilmsComponent} from "./components/cards/card-films/card-films.component";
 import {FilmListComponent} from "./components/lists/film-list/film-list.component";
-import { AdminComponent } from "./layouts/admin/admin.component";
-import { AuthComponent } from "./layouts/auth/auth.component";
-
-// admin views
-import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
-import { MapsComponent } from "./views/admin/maps/maps.component";
-import { SettingsComponent } from "./views/admin/settings/settings.component";
-import { TablesComponent } from "./views/admin/tables/tables.component";
-
-// auth views
-import { LoginComponent } from "./views/auth/login/login.component";
-import { RegisterComponent } from "./views/auth/register/register.component";
-
-// no layouts views
-import { IndexComponent } from "./views/index/index.component";
-import { LandingComponent } from "./views/landing/landing.component";
-import { ProfileComponent } from "./views/profile/profile.component";
 
 const routes: Routes = [
   // admin views
@@ -68,6 +51,7 @@ const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'films', component: FilmListComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' },
+  {
     path: "auth",
     component: AuthComponent,
     children: [

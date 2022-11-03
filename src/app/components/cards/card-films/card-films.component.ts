@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Film} from '../../../interfaces/movie.interface';
+import {Film} from '../../../models/interfaces/authentication/movie.interface';
 
 @Component({
   selector: 'app-card-films',

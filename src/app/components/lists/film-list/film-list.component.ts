@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from '../../../services/movie.service';
-import {Film} from '../../../interfaces/movie.interface';
+import {Film} from '../../../models/interfaces/authentication/movie.interface';
 
 @Component({
   selector: 'app-film-list',
@@ -16,7 +16,7 @@ export class FilmListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filmService.getPopular(this.currentPage).subscribe(response => {
+    this.filmService.getMovieList(this.currentPage).subscribe(response => {
       this.pages = response.total_pages;
       this.films = response.results;
     })
