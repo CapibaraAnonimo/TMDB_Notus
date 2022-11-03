@@ -47,6 +47,11 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
+import { PersonListComponent } from './components/person/person-list/person-list.component';
+import { PersonDetailsComponent } from './components/person/person-details/person-details.component';
+import { PersonMoviesComponent } from './components/person/person-movies/person-movies.component';
+import { ListPopularPersonComponent } from './views/admin/person/list-popular-person/list-popular-person.component';
+import { DetailsPopularPersonComponent } from './views/admin/person/details-popular-person/details-popular-person.component';
 
 @NgModule({
   declarations: [
@@ -83,12 +88,17 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     RegisterComponent,
     IndexComponent,
     LandingComponent,
-    ProfileComponent
+    ProfileComponent,
+    PersonListComponent,
+    PersonDetailsComponent,
+    PersonMoviesComponent,
+    ListPopularPersonComponent,
+    DetailsPopularPersonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,73 @@
+<div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+        <div class="flex flex-wrap items-center">
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                <h3 class="font-semibold text-lg">Actores</h3>
+            </div>
+
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                <button class="m-2 p-2 font-semibold rounded-lg" *ngIf="page > 1" type="submit"
+                    (click)="pre()">Anterior</button>
+                <button class="m-2 p-1 font-semibold">{{page}}</button>
+                <button class="m-2 p-2 font-semibold rounded-lg" *ngIf="page < numPages" type="submit"
+                    (click)="next()">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="block w-full overflow-x-auto">
+        <table class="items-center w-full bg-transparent border-collapse">
+            <thead>
+                <tr>
+                    <th
+                        class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Nombre</th>
+                    <th
+                        class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Género</th>
+                    <th
+                        class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Edad</th>
+                    <th
+                        class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Departamento</th>
+                    <th
+                        class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Películas</th>
+                    <th
+                        class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let person of personList">
+                    <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                        <img [src]="showImgPerson(person.profile_path)" class="h-12 w-12 bg-white rounded-full border"
+                            alt="Foto del actor {{person.name}}" />
+                        <span class="ml-3 font-bold">{{person.name}}</span>
+                    </th>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        {{showGender(person.gender)}}</td>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        {{person.adult? 'Under-age' : 'Adult'}}</td>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        {{person.known_for_department}}</td>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <div class="flex">
+                            <p *ngFor="let movie of person.known_for">
+                                <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
+                                    class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow" />
+                            </p>
+                        </div>
+                    </td>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <a class="font-bold"
+                            [routerLink]="['/admin/person-list/person-details', person.id]">Detalles</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

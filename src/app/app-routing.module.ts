@@ -8,6 +8,8 @@ import { AuthComponent } from "./layouts/auth/auth.component";
 // admin views
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
+import { DetailsPopularPersonComponent } from "./views/admin/person/details-popular-person/details-popular-person.component";
+import { ListPopularPersonComponent } from "./views/admin/person/list-popular-person/list-popular-person.component";
 import { SettingsComponent } from "./views/admin/settings/settings.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
@@ -30,6 +32,12 @@ const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
+      {
+        path: "person-list", component: ListPopularPersonComponent,
+        children: [
+          { path: "person-details/:id", component: DetailsPopularPersonComponent }
+        ]
+      },
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
@@ -54,4 +62,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
