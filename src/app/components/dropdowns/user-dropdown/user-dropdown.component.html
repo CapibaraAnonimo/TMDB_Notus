@@ -1,8 +1,14 @@
 <button class="text-blueGray-500 block" (click)="login? toggleDropdown($event) : requestToken()" #btnDropdownRef>
-  <div class="items-center flex">
+  <div *ngIf="login" class="items-center flex">
+    <p class="font-bold text-white mr-2">{{userName}}</p>
     <span class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
-      <img alt="Foto de perfil de usuario" [ngClass]= "login? 'w-full rounded-full align-middle border-none shadow-lg' :  '' "
-        src="{{login? img : loginIcon}}" />
+      <img alt="Foto de perfil de usuario"
+        [ngClass]="login? 'w-full rounded-full align-middle border-none shadow-lg' :  '' " [src]="img" />
+    </span>
+  </div>
+  <div *ngIf="!login" class="items-center flex">
+    <span class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
+      <i class="fas fa-solid fa-user text-black"></i>
     </span>
   </div>
 </button>
