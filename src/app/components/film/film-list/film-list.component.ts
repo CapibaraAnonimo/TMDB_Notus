@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from '../../../services/movie.service';
-import {Film} from '../../../models/interfaces/authentication/movie.interface';
+
+class Film {
+}
 
 @Component({
   selector: 'app-film-list',
