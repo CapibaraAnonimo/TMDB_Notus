@@ -40,12 +40,6 @@ export class PersonListComponent implements OnInit {
     }
   }
 
-  changePage(page: number) {
-    this.personService.getPersonList(page).subscribe(resp => {
-      this.personList = resp.results;
-    });
-  }
-
   next() {
     this.page += 1;
     this.personService.getPersonList(this.page).subscribe(resp => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from 'src/app/models/interfaces/movie/movie.interface';
 import { PersonDetailsResponse } from 'src/app/models/interfaces/person/person-details.interface';
+import { KnownFor, Person } from 'src/app/models/interfaces/person/person.interface';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -12,22 +12,32 @@ import { PersonService } from 'src/app/services/person.service';
 export class PersonDetailsComponent implements OnInit {
 
   id: number = 0;
-  movieList: Movie[] = [];
-  person: PersonDetailsResponse = {} as PersonDetailsResponse;
+  personDetails: PersonDetailsResponse = {} as PersonDetailsResponse;
+  person: Person = {} as Person;
 
   constructor(private route: ActivatedRoute, private personService: PersonService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(resp => {
-      this.id = resp['id']
+      this.id = resp['id'];
     });
 
     this.personService.getPersonDetails(this.id).subscribe(resp => {
-      this.person = resp;
+      this.personDetails = resp;
     });
   }
 
   showImgPerson(profile_path: string) {
     return `https://image.tmdb.org/t/p/w500/${profile_path}`;
+  }
+
+  showGender(gender: number) {
+    if (gender == 1) {
+      return 'Female';
+    } else if (gender == 2) {
+      return 'Male';
+    } else {
+      return 'Other';
+    }
   }
 }

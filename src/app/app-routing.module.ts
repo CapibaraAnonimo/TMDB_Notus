@@ -25,6 +25,7 @@ import { ProfileComponent } from "./views/profile/profile.component";
 const routes: Routes = [
   // admin views
   {
+    // Cambiar a public, y cambiar todos los routerLink
     path: "admin",
     component: AdminComponent,
     children: [
@@ -32,15 +33,14 @@ const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
-      {
-        path: "person-list", component: ListPopularPersonComponent,
-        children: [
-          { path: "person-details/:id", component: DetailsPopularPersonComponent }
-        ]
-      },
+      { path: "person-list", component: ListPopularPersonComponent },
+      { path: "person-details/:id/:page", component: DetailsPopularPersonComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
+
+  //{ path: "private"},
+
   // auth views
   {
     path: "auth",
