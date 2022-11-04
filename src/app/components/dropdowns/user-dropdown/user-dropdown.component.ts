@@ -29,6 +29,10 @@ export class UserDropdownComponent implements AfterViewInit {
   ngOnInit() {
     if (localStorage.getItem('session_id') != null) {
       this.login = true;
+      this.accountService.getAccountDetails().subscribe(resp => {
+        this.userName = resp.username;
+        this.img = `https://www.themoviedb.org/t/p/w150_and_h150_face${resp.avatar.tmdb.avatar_path}`;
+      });
     }
 
     this.route.queryParams.subscribe((qParams) => {
@@ -47,13 +51,9 @@ export class UserDropdownComponent implements AfterViewInit {
             this.userName = resp.username;
             this.img = `https://www.themoviedb.org/t/p/w150_and_h150_face${resp.avatar.tmdb.avatar_path}`;
           });
+          window.location.href = `http://localhost:4200/admin/dashboard`;
         });
       }
-    });
-
-    this.accountService.getAccountDetails().subscribe(resp => {
-      this.userName = resp.username;
-      this.img = `https://www.themoviedb.org/t/p/w150_and_h150_face${resp.avatar.tmdb.avatar_path}`;
     });
   }
 
@@ -80,7 +80,7 @@ export class UserDropdownComponent implements AfterViewInit {
     this.authService.createRequestToken().subscribe(resp => {
       this.reqToken = resp.request_token;
       console.log(this.reqToken);
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin/dashboard`;
     });
   }
 
@@ -92,7 +92,7 @@ export class UserDropdownComponent implements AfterViewInit {
         if (resp.success) {
           localStorage.removeItem('session_id');
           this.login = false;
-          this.router.navigate(['/admin']);
+          window.location.href = `http://localhost:4200/admin/dashboard`;
         }
       });
     }
