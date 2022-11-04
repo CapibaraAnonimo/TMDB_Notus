@@ -1,9 +1,9 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 // layouts
-import { AdminComponent } from "./layouts/admin/admin.component";
-import { AuthComponent } from "./layouts/auth/auth.component";
+import { AdminComponent } from './layouts/admin/admin.component';
+import { AuthComponent } from './layouts/auth/auth.component';
 
 // admin views
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
@@ -20,9 +20,11 @@ import { AccountListComponent } from "./views/auth/list/account-list/account-lis
 import { NewListComponent } from "./views/auth/list/new-list/new-list.component";
 
 // no layouts views
-import { IndexComponent } from "./views/index/index.component";
-import { LandingComponent } from "./views/landing/landing.component";
-import { ProfileComponent } from "./views/profile/profile.component";
+import { IndexComponent } from './views/index/index.component';
+import { LandingComponent } from './views/landing/landing.component';
+import { ProfileComponent } from './views/profile/profile.component';
+import {FilmListComponent} from './components/film/film-list/film-list.component';
+import {FilmDetailComponent} from './components/film/film-detail/film-detail.component';
 
 const routes: Routes = [
   // admin views
@@ -45,7 +47,7 @@ const routes: Routes = [
 
   // auth views
   {
-    path: "auth",
+    path: 'auth',
     component: AuthComponent,
     children: [
       { path: "login", component: LoginComponent },
@@ -57,10 +59,14 @@ const routes: Routes = [
   },
 
   // no layout views
-  { path: "profile", component: ProfileComponent },
-  { path: "landing", component: LandingComponent },
-  { path: "", component: IndexComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'landing', component: LandingComponent },
+  { path: 'films', children: [
+      {path: '', component: FilmListComponent},
+      {path: ':id', component: FilmDetailComponent},
+    ]},
+  { path: '', component: IndexComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
