@@ -29,6 +29,10 @@ export class UserDropdownComponent implements AfterViewInit {
   ngOnInit() {
     if (localStorage.getItem('session_id') != null) {
       this.login = true;
+      this.accountService.getAccountDetails().subscribe(resp => {
+        this.userName = resp.username;
+        this.img = `https://www.themoviedb.org/t/p/w150_and_h150_face${resp.avatar.tmdb.avatar_path}`;
+      });
     }
 
     this.route.queryParams.subscribe((qParams) => {
@@ -47,13 +51,9 @@ export class UserDropdownComponent implements AfterViewInit {
             this.userName = resp.username;
             this.img = `https://www.themoviedb.org/t/p/w150_and_h150_face${resp.avatar.tmdb.avatar_path}`;
           });
+          window.location.href = `http://localhost:4200/admin/dashboard`;
         });
       }
-    });
-
-    this.accountService.getAccountDetails().subscribe(resp => {
-      this.userName = resp.username;
-      this.img = `https://www.themoviedb.org/t/p/w150_and_h150_face${resp.avatar.tmdb.avatar_path}`;
     });
   }
 
@@ -92,7 +92,7 @@ export class UserDropdownComponent implements AfterViewInit {
         if (resp.success) {
           localStorage.removeItem('session_id');
           this.login = false;
-          this.router.navigate(['/admin']);
+          window.location.href = `http://localhost:4200/admin/dashboard`;
         }
       });
     }

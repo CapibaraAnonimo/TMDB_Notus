@@ -16,6 +16,8 @@ import { TablesComponent } from "./views/admin/tables/tables.component";
 // auth views
 import { LoginComponent } from "./views/auth/login/login.component";
 import { RegisterComponent } from "./views/auth/register/register.component";
+import { AccountListComponent } from "./views/auth/list/account-list/account-list.component";
+import { NewListComponent } from "./views/auth/list/new-list/new-list.component";
 
 // no layouts views
 import { IndexComponent } from "./views/index/index.component";
@@ -48,9 +50,12 @@ const routes: Routes = [
     children: [
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
+      { path: "lists", component: AccountListComponent },
+      { path: "create-list", component: NewListComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
+
   // no layout views
   { path: "profile", component: ProfileComponent },
   { path: "landing", component: LandingComponent },
