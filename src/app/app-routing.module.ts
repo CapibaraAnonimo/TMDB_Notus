@@ -34,7 +34,7 @@ const routes: Routes = [
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
       { path: "person-list", component: ListPopularPersonComponent },
-      { path: "person-details/:id/:page", component: DetailsPopularPersonComponent },
+      { path: "person-details/:id", component: DetailsPopularPersonComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
