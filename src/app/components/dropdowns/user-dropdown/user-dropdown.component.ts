@@ -45,7 +45,7 @@ export class UserDropdownComponent implements AfterViewInit {
         this.authService.createSession(this.session).subscribe(resp => {
           this.login = true;
           localStorage.setItem('session_id', resp.session_id);
-          console.log('Session id: ' + resp.session_id);
+          //console.log('Session id: ' + resp.session_id);
 
           this.accountService.getAccountDetails().subscribe(resp => {
             this.userName = resp.username;

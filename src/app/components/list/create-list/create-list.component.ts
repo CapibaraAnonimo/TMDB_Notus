@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CreateListDto } from 'src/app/models/dto/create-list.dto';
 import { ListsService } from 'src/app/services/lists.service';
 
@@ -17,15 +17,17 @@ export class CreateListComponent implements OnInit {
   list_id: number = 0;
   idList: number[] = [];
 
-  constructor(private listService: ListsService, private router: Router) { }
+  constructor(private listService: ListsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
+    this.route.queryParams.subscribe(qParams => {
+      this.name = qParams['name'];
+      this.description = qParams['description'];
+    });
 
-  onSubmit() {
     this.listService.createList(new CreateListDto(this.name, this.description, this.language)).subscribe(resp => {
       alert(resp.status_message);
-      this.router.navigate(['/home']);
+      window.location.href = `http://localhost:4200/auth/lists`;
     });
   }
 }
