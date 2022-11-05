@@ -13,13 +13,15 @@ export class CreateListComponent implements OnInit {
   name: string = '';
   description: string = '';
   language: string = 'en-US';
-  list: CreateListDto = {} as CreateListDto;
-  list_id: number = 0;
-  idList: number[] = [];
+  login = false;
 
   constructor(private listService: ListsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('session_id') != null) {
+      this.login = true;
+    };
+
     this.route.queryParams.subscribe(qParams => {
       this.name = qParams['name'];
       this.description = qParams['description'];
