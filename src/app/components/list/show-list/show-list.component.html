@@ -1,5 +1,5 @@
 <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white"
-    style="width: 40%; margin: 0 auto;" *ngIf="login">
+    style="width: 65%; margin: 0 auto;" *ngIf="login">
     <div class="rounded-t mb-0 px-4 py-3 border-0">
         <div class="flex flex-wrap items-center">
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
@@ -9,7 +9,7 @@
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                 <button class="m-2 p-2 font-semibold rounded-lg" *ngIf="page > 1" type="submit"
                     (click)="pre()">Anterior</button>
-                <button class="m-2 p-1 font-semibold">{{page}}</button>
+                <button class="m-2 p-1 font-semibold">{{page === 1? '' : page}}</button>
                 <button class="m-2 p-2 font-semibold rounded-lg" *ngIf="page < numPages" type="submit"
                     (click)="next()">Siguiente</button>
             </div>
@@ -28,12 +28,15 @@
                         Elementos en lista</th>
                     <th
                         class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-bold text-left">
-                        Descripcion</th>
+                        Descripción</th>
+                    <th
+                        class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-bold text-left">
+                        Favoritos</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr *ngFor="let list of allList" (click)="getDetails(list.id)">
+                <tr *ngFor="let list of allList">
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
                         {{list.name}}</td>
@@ -43,15 +46,18 @@
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
                         {{list.description}}</td>
+                    <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
+                        <button (click)="getDetails(list.id)">{{showDetails? 'Cerrar' : 'Mostrar favoritos'}}</button>
+                    </td>
                 </tr>
-                <div class="flex-auto px-4 lg:px-10 py-10 pt-0" *ngIf="showDetails">
-                    <div class="flex flex-wrap">
-                        <div class="w-full lg:w-4/12 mr-4" *ngFor="let movie of movieFavList">
-                            <div class="relative w-full mb-3">
-                                <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
-                                    class="border-2 border-blueGray-50 shadow" style="width: 100%;" />
-                                <p class="text-xs">{{movie.title}}</p>
-                            </div>
+
+                <div class="flex flex-wrap ml-3" *ngIf="showDetails">
+                    <div class="w-full lg:w-4/12" *ngFor="let movie of movieFavList" style="margin: 0 auto;">
+                        <div class="relative w-full mb-3">
+                            <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
+                                class="border-2 border-blueGray-50 shadow" />
+                            <p class="text-xs text-center">{{movie.title}}</p>
                         </div>
                     </div>
                 </div>
