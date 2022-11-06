@@ -16,6 +16,8 @@ import { TablesComponent } from './views/admin/tables/tables.component';
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
+import { AccountListComponent } from './views/auth/list/account-list/account-list.component';
+import { NewListComponent } from './views/auth/list/new-list/new-list.component';
 
 // no layouts views
 import { IndexComponent } from './views/index/index.component';
@@ -28,31 +30,34 @@ const routes: Routes = [
   // admin views
   {
     // Cambiar a public, y cambiar todos los routerLink
-    path: 'admin',
+    path: "admin",
     component: AdminComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'settings', component: SettingsComponent },
-      { path: 'tables', component: TablesComponent },
-      { path: 'maps', component: MapsComponent },
-      { path: 'person-list', component: ListPopularPersonComponent },
-      { path: 'person-details/:id/:page', component: DetailsPopularPersonComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "settings", component: SettingsComponent },
+      { path: "tables", component: TablesComponent },
+      { path: "maps", component: MapsComponent },
+      { path: "person-list", component: ListPopularPersonComponent },
+      { path: "person-details/:id", component: DetailsPopularPersonComponent },
+      { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
 
-  // { path: "private"},
+  //{ path: "private"},
 
   // auth views
   {
     path: 'auth',
     component: AuthComponent,
     children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: "login", component: LoginComponent },
+      { path: "register", component: RegisterComponent },
+      { path: "lists", component: AccountListComponent },
+      { path: "create-list", component: NewListComponent },
+      { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
+
   // no layout views
   { path: 'profile', component: ProfileComponent },
   { path: 'landing', component: LandingComponent },
