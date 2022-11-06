@@ -55,6 +55,7 @@ import { DetailsPopularPersonComponent } from './views/admin/person/details-popu
 import { FilmListComponent } from './components/film/film-list/film-list.component';
 import {CardFilmsComponent} from './components/film/card-film/card-film.component';
 import { FilmDetailComponent } from './components/film/film-detail/film-detail.component';
+import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { FilmDetailComponent } from './components/film/film-detail/film-detail.c
     DetailsPopularPersonComponent,
     FilmListComponent,
     CardFilmsComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    FilmDetailsComponent
   ],
   imports: [
     BrowserModule,

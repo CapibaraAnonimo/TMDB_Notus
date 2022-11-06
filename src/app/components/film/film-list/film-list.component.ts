@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from '../../../services/movie.service';
-
-class Film {
-}
+import {Movie} from '../../../models/interfaces/movie/movie.interface';
 
 @Component({
   selector: 'app-film-list',
@@ -10,7 +8,7 @@ class Film {
   styleUrls: ['./film-list.component.css']
 })
 export class FilmListComponent implements OnInit {
-  films: Film[];
+  films: Movie[];
   pages: number;
   currentPage: number;
 

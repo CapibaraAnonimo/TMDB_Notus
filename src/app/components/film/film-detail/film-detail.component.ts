@@ -10,8 +10,9 @@ import {ReleaseDateResponse} from '../../../models/interfaces/movie/release-date
   styleUrls: ['./film-detail.component.css']
 })
 export class FilmDetailComponent implements OnInit {
-  film: MovieDetailsResponse;
-  releaseDate: ReleaseDateResponse
+  film!: MovieDetailsResponse;
+  releaseDate!: ReleaseDateResponse
+  nombre = 'nombre';
 
   constructor(private movieService: MovieService, private route: ActivatedRoute) {
   }
@@ -20,6 +21,7 @@ export class FilmDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.movieService.getMovieDetails(params.id).subscribe(details => {
         this.film = details;
+        alert(this.film.title)
         document.getElementById('bImage').style.backgroundImage = `url(${this.getImage(this.film.backdrop_path)})`;
 
         this.movieService.getMovieReleaseDate(params.id).subscribe(releaseDate => {

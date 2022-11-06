@@ -22,7 +22,7 @@ import { IndexComponent } from './views/index/index.component';
 import { LandingComponent } from './views/landing/landing.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import {FilmListComponent} from './components/film/film-list/film-list.component';
-import {FilmDetailComponent} from './components/film/film-detail/film-detail.component';
+import {FilmDetailsComponent} from './components/film/film-details/film-details.component';
 
 const routes: Routes = [
   // admin views
@@ -58,7 +58,7 @@ const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'films', children: [
       {path: '', component: FilmListComponent},
-      {path: ':id', component: FilmDetailComponent},
+      {path: ':id', component: FilmDetailsComponent},
     ]},
   { path: '', component: IndexComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
