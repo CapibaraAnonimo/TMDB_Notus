@@ -52,13 +52,14 @@ import { PersonDetailsComponent } from './components/person/person-details/perso
 import { PersonMoviesComponent } from './components/person/person-movies/person-movies.component';
 import { ListPopularPersonComponent } from './views/admin/person/list-popular-person/list-popular-person.component';
 import { DetailsPopularPersonComponent } from './views/admin/person/details-popular-person/details-popular-person.component';
-import { ShowListComponent } from './components/list/show-list/show-list.component';
-import { CreateListComponent } from './components/list/create-list/create-list.component';
-import { AccountListComponent } from './views/auth/list/account-list/account-list.component';
-import { NewListComponent } from './views/auth/list/new-list/new-list.component';
 import { FilmListComponent } from './components/film/film-list/film-list.component';
 import {CardFilmsComponent} from './components/film/card-film/card-film.component';
 import { FilmDetailComponent } from './components/film/film-detail/film-detail.component';
+import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
+// import { ShowListComponent } from './components/list/show-list/show-list.component';
+// import { CreateListComponent } from './components/list/create-list/create-list.component';
+// import { AccountListComponent } from './views/auth/list/account-list/account-list.component';
+// import { NewListComponent } from './views/auth/list/new-list/new-list.component';
 
 @NgModule({
   declarations: [
@@ -101,10 +102,14 @@ import { FilmDetailComponent } from './components/film/film-detail/film-detail.c
     PersonMoviesComponent,
     ListPopularPersonComponent,
     DetailsPopularPersonComponent,
-    ShowListComponent,
-    CreateListComponent,
-    AccountListComponent,
-    NewListComponent
+    FilmListComponent,
+    CardFilmsComponent,
+    FilmDetailComponent,
+    FilmDetailsComponent,
+    // ShowListComponent,
+    // CreateListComponent,
+    // AccountListComponent,
+    // NewListComponent
     FilmListComponent,
     CardFilmsComponent,
     FilmDetailComponent
