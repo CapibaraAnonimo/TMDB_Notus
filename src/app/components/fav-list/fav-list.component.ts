@@ -50,8 +50,4 @@ export class FavListComponent implements OnInit {
       this.favorites = resp.results;
     });
   }
-
-  redirect(movieId: number) {
-    return `/films/${movieId}`
-  }
 }

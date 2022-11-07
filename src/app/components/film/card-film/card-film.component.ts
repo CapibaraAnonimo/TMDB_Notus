@@ -19,8 +19,4 @@ export class CardFilmsComponent implements OnInit {
   getImage() {
     return 'https://image.tmdb.org/t/p/original/' + this.film.poster_path;
   }
-
-  redirect() {
-    return `/films/${this.film.id}`
-  }
 }

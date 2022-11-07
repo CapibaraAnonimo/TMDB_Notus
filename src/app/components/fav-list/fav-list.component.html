@@ -3,13 +3,13 @@
     <div class="rounded-t mb-0 px-4 py-3 border-0">
         <div class="flex flex-wrap items-center">
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                <h3 class="font-semibold text-lg">Mis favoritas</h3>
+                <h3 class="font-semibold text-lg">Películas favoritas</h3>
             </div>
 
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                 <button class="m-2 p-2 font-semibold rounded-lg" *ngIf="page > 1" type="submit"
                     (click)="pre()">Anterior</button>
-                <button class="m-2 p-1 font-semibold">{{page === 1? '' : page}}</button>
+                <button class="m-2 p-1 font-semibold">{{page === 1? '' : page - numPages}}</button>
                 <button class="m-2 p-2 font-semibold rounded-lg" *ngIf="page < numPages" type="submit"
                     (click)="next()">Siguiente</button>
             </div>
@@ -51,7 +51,7 @@
                         {{movie.release_date}}</td>
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
-                        <a [href]="redirect(movie.id)">Ver</a>
+                        <a [routerLink]="['/admin/film-details', movie.id]">Ver</a>
                     </td>
                 </tr>
             </tbody>
