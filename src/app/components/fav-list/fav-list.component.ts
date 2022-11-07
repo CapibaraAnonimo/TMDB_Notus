@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Favorites } from 'src/app/models/interfaces/favorite/get-list.interface';
 import { AccountService } from 'src/app/services/account.service';
-import { ListsService } from 'src/app/services/fav.service';
+import { FavService } from 'src/app/services/fav.service';
 
 @Component({
   selector: 'app-favorite-list',
@@ -16,7 +16,7 @@ export class FavListComponent implements OnInit {
   page: number = 1;
   login = false;
 
-  constructor(private accountService: AccountService, private listService: ListsService) { }
+  constructor(private accountService: AccountService, private favService: FavService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('session_id') != null) {
@@ -27,7 +27,7 @@ export class FavListComponent implements OnInit {
       this.account_id = resp.id;
     });
 
-    this.listService.getFavorites(this.account_id, this.page).subscribe(resp => {
+    this.favService.getFavorites(this.account_id, this.page).subscribe(resp => {
       this.favorites = resp.results;
       this.numPages = resp.total_pages;
     });
@@ -39,15 +39,19 @@ export class FavListComponent implements OnInit {
 
   next() {
     this.page += 1;
-    this.listService.getFavorites(this.account_id, this.page).subscribe(resp => {
+    this.favService.getFavorites(this.account_id, this.page).subscribe(resp => {
       this.favorites = resp.results;
     });
   }
 
   pre() {
     this.page -= 1;
-    this.listService.getFavorites(this.account_id, this.page).subscribe(resp => {
+    this.favService.getFavorites(this.account_id, this.page).subscribe(resp => {
       this.favorites = resp.results;
     });
+  }
+
+  redirect(movieId: number) {
+    return `/films/${movieId}`
   }
 }

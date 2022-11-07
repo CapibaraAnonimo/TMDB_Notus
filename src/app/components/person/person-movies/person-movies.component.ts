@@ -34,4 +34,8 @@ export class PersonMoviesComponent implements OnInit {
   showImgMovie(poster_path: string) {
     return `https://image.tmdb.org/t/p/w500/${poster_path}`;
   }
+
+  redirect(movieId: number) {
+    return `/films/${movieId}`
+  }
 }

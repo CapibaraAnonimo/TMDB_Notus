@@ -9,10 +9,12 @@
         <div class="flex flex-wrap">
             <div class="w-full lg:w-4/12" *ngFor="let movie of movieList">
                 <div class="relative w-full mb-3">
-                    <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
+                    <a [href]="redirect(movie.id)">
+                        <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
                         class="border-2 border-blueGray-50 shadow" style="width: 65%;"
                         onerror="this.src='https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg'" />
                     <h6 class="text-black font-bold">{{movie.title}}</h6>
+                    </a>
                 </div>
             </div>
         </div>

@@ -39,18 +39,19 @@
                 <tr *ngFor="let movie of favorites">
                     <td class="border-t-0 align-middle border-l-0 border-r-0 whitespace-nowrap"
                         style="margin: 0px; padding: 0px">
-                        <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}" width="40%"
-                            style="margin: 0 auto; padding-bottom: 5px" />
+                        <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}" width="50%"
+                            style="margin: 0 auto; padding-bottom: 5px"
+                            onerror="this.src='https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg'" />
                     </td>
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
-                        {{movie.original_title}}</td>
+                        {{movie.title}}</td>
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
                         {{movie.release_date}}</td>
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
-                        <button>Ver</button>
+                        <a [href]="redirect(movie.id)">Ver</a>
                     </td>
                 </tr>
             </tbody>

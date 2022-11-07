@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AddFavoriteDto } from '../models/dto/add-movie-dto';
+import { AddFavoriteDto } from '../models/dto/add-fav-dto';
 import { AddFavoriteResponse } from '../models/interfaces/favorite/add-movie-list.interface';
 import { FavoriteResponse } from '../models/interfaces/favorite/get-list.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ListsService {
+export class FavService {
 
   constructor(private http: HttpClient) { }
 

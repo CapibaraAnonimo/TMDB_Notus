@@ -56,6 +56,10 @@ import { FavListComponent } from './components/fav-list/fav-list.component';
 import { FavoriteComponent } from './views/auth/favorite/favorite.component';
 import { DetailsPopularFilmComponent } from './views/admin/films/details-popular-film/details-popular-film.component';
 import { ListPopularFilmComponent } from './views/admin/films/list-popular-film/list-popular-film.component';
+import { FilmListComponent } from './components/film/film-list/film-list.component';
+import { CardFilmsComponent } from './components/film/card-film/card-film.component';
+import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
+import { RatedFilmListComponent } from './components/film/rated-film-list/rated-film-list.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +105,11 @@ import { ListPopularFilmComponent } from './views/admin/films/list-popular-film/
     FavListComponent,
     FavoriteComponent,
     DetailsPopularFilmComponent,
-    ListPopularFilmComponent
+    ListPopularFilmComponent,
+    FilmDetailsComponent,
+    FilmListComponent,
+    RatedFilmListComponent,
+    CardFilmsComponent
   ],
   imports: [
     BrowserModule,

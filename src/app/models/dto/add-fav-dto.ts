@@ -1,5 +1,4 @@
 export class AddFavoriteDto {
-    // ID película
     media_type: string = "movie";
     media_id: number = 0;
     favorite: boolean = true;
