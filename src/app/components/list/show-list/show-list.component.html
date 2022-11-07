@@ -32,6 +32,9 @@
                     <th
                         class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-bold text-left">
                         Detalles</th>
+                    <th
+                        class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-bold text-left">
+                        Eliminar</th>
                 </tr>
             </thead>
 
@@ -39,8 +42,8 @@
                 <tr *ngFor="let movie of favorites">
                     <td class="border-t-0 align-middle border-l-0 border-r-0 whitespace-nowrap"
                         style="margin: 0px; padding: 0px">
-                        <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
-                            width="40%" style="margin: 0 auto; padding-bottom: 5px"/>
+                        <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}" width="40%"
+                            style="margin: 0 auto; padding-bottom: 5px" />
                     </td>
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
@@ -51,6 +54,10 @@
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
                         <button>Ver</button>
+                    </td>
+                    <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
+                        <button>Borrar</button>
                     </td>
                 </tr>
             </tbody>

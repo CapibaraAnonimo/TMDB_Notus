@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AddFavoriteDto } from 'src/app/models/dto/add-movie-dto';
 import { Favorites } from 'src/app/models/interfaces/list/get-list.interface';
 import { Item } from 'src/app/models/interfaces/list/list-details.interface';
+import { Movie } from 'src/app/models/interfaces/movie/movie.interface';
 import { AccountService } from 'src/app/services/account.service';
 import { ListsService } from 'src/app/services/lists.service';
 

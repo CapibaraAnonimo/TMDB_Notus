@@ -32,7 +32,7 @@ export class ListsService {
   }*/
 
   public addFavorite(account_id: number, addDto: AddFavoriteDto): Observable<AddFavoriteResponse> {
-    return this.http.post<AddFavoriteResponse>(`${environment.API_BASE_URL}/account/${account_id}/account/${account_id}/favorite?api_key=${environment.API_KEY_M}&session_id=${localStorage.getItem('session_id')}`, addDto);
+    return this.http.post<AddFavoriteResponse>(`${environment.API_BASE_URL}/account/${account_id}/favorite?api_key=${environment.API_KEY_M}&session_id=${localStorage.getItem('session_id')}`, addDto);
   }
 
   public getFavorites(account_id: number, page: number): Observable<FavoriteResponse> {

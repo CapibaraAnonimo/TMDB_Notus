@@ -13,7 +13,7 @@ export class RatingService {
   constructor(private http: HttpClient) {
   }
 
-  public rateMovie(id: string, ratingDto: RateMovieDto): Observable<RatingResponse> {
+  public rateMovie(id: number, ratingDto: RateMovieDto): Observable<RatingResponse> {
     return this.http.post<RatingResponse>(`${environment.API_BASE_URL}/movie/${id}/rating?api_key=${environment.API_KEY_M}`, ratingDto);
   }
 }
