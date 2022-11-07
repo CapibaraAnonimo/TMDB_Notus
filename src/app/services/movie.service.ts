@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { MovieResponse } from '../models/interfaces/movie/movie.interface';
 import {MovieDetailsResponse} from '../models/interfaces/movie/movie-details.interface';
 import {ReleaseDateResponse} from '../models/interfaces/movie/release-date.interface';
+import {RatedMoviesResponse} from '../models/interfaces/movie/movies-rated.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,9 @@ export class MovieService {
 
   public getMovieReleaseDate(movieId: number): Observable<ReleaseDateResponse> {
     return this.http.get<ReleaseDateResponse>(`${environment.API_BASE_URL}/movie/${movieId}/release_dates?api_key=${environment.API_KEY_M}`)
+  }
+
+  public getRatedMovies(page: number = 1, accountId: string): Observable<RatedMoviesResponse> {
+    return this.http.get<RatedMoviesResponse>(`${environment.API_BASE_URL}/account/${accountId}/rated/movies?api_key=${environment.API_KEY_M}&page=${page}&session_id=${localStorage.getItem('session_id')}`)
   }
 }

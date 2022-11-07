@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Movie} from '../../../models/interfaces/movie/movie.interface';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-card-films',
@@ -9,7 +10,7 @@ import {Movie} from '../../../models/interfaces/movie/movie.interface';
 export class CardFilmsComponent implements OnInit {
   @Input() film: Movie;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -17,6 +18,10 @@ export class CardFilmsComponent implements OnInit {
 
   getImage() {
     return 'https://image.tmdb.org/t/p/original/' + this.film.poster_path;
+  }
+
+  redirect() {
+    return `/films/${this.film.id}`
   }
 }
 

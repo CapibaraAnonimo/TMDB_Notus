@@ -25,6 +25,7 @@ import { LandingComponent } from './views/landing/landing.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import {FilmListComponent} from './components/film/film-list/film-list.component';
 import {FilmDetailsComponent} from './components/film/film-details/film-details.component';
+import {RatedFilmListComponent} from './components/film/rated-film-list/rated-film-list.component';
 
 const routes: Routes = [
   // admin views
@@ -65,8 +66,10 @@ const routes: Routes = [
       {path: '', component: FilmListComponent},
       {path: ':id', component: FilmDetailsComponent},
     ]},
+  { path: 'rated', component: RatedFilmListComponent },
   { path: '', component: IndexComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
+
 ];
 
 @NgModule({

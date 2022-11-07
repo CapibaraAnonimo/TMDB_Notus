@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MovieDetailsResponse} from '../../../models/interfaces/movie/movie-details.interface';
 import {ReleaseDateResponse} from '../../../models/interfaces/movie/release-date.interface';
 import {MovieService} from '../../../services/movie.service';
@@ -8,6 +8,7 @@ import {CreditsResponse} from '../../../models/interfaces/credits/credits.interf
 import {RatingService} from '../../../services/rating.service';
 import {RateMovieDto} from '../../../models/dto/rate-movie.dto';
 import {createPopper} from '@popperjs/core';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-film-details',
@@ -19,27 +20,22 @@ export class FilmDetailsComponent implements OnInit {
   releaseDate!: ReleaseDateResponse;
   id!: string;
   credit: CreditsResponse;
+  form;
 
   popoverShow = false;
   @ViewChild('btnRef', {static: false}) btnRef: ElementRef;
   popper = document.createElement('div');
-  nombre = 'nombre';
 
   constructor(private movieService: MovieService, private route: ActivatedRoute, private creditService: CreditsService,
-              private ratingService: RatingService) {
+              private ratingService: RatingService, private formBuilder: FormBuilder, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.popper.innerHTML = `<div class="bg-red-600 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg">
-  <div>
-    <div class="bg-red-600 text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-blueGray-100 uppercase rounded-t-lg">
-      red popover title
-    </div>
-    <div class="text-white p-3">
-      And here's some amazing content. It's very engaging. Right?
-    </div>
-  </div>
-</div>`;
+    this.form = document.getElementById('form')
+    this.popper.innerHTML = `
+
+    `;
+
 
     this.route.params.subscribe(params => {
       this.id = params.id;
@@ -50,10 +46,9 @@ export class FilmDetailsComponent implements OnInit {
 
       this.movieService.getMovieReleaseDate(params.id).subscribe(releaseDate => {
         this.releaseDate = releaseDate;
-        debugger;
       });
 
-      this.creditService.getAccountDetails(this.id).subscribe(response => {
+      this.creditService.getCredits(this.id).subscribe(response => {
         this.credit = response;
       })
     });
@@ -63,8 +58,13 @@ export class FilmDetailsComponent implements OnInit {
     return 'https://image.tmdb.org/t/p/original' + url;
   }
 
-  rateFilm(rate: number) {
-    this.ratingService.rateMovie(this.id, new RateMovieDto(rate));
+  rateFilm(rate: string) {
+    if (+rate > 10 || +rate < 0.5) {
+      alert('Not a valid rate');
+    } else {
+      this.ratingService.rateMovie(this.id, new RateMovieDto(+rate)).subscribe(response => {
+      });
+    }
   }
 
   togglePopover() {

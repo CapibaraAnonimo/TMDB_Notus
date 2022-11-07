@@ -12,7 +12,7 @@ export class CreditsService {
   constructor(private http: HttpClient) {
   }
 
-  public getAccountDetails(id: string): Observable<CreditsResponse> {
+  public getCredits(id: string): Observable<CreditsResponse> {
     return this.http.get<CreditsResponse>(`${environment.API_BASE_URL}/movie/${id}/credits?api_key=${environment.API_KEY_M}`);
   }
 }

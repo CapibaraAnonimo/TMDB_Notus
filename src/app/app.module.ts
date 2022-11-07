@@ -56,6 +56,8 @@ import { FilmListComponent } from './components/film/film-list/film-list.compone
 import {CardFilmsComponent} from './components/film/card-film/card-film.component';
 import { FilmDetailComponent } from './components/film/film-detail/film-detail.component';
 import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RatedFilmListComponent } from './components/film/rated-film-list/rated-film-list.component';
 // import { ShowListComponent } from './components/list/show-list/show-list.component';
 // import { CreateListComponent } from './components/list/create-list/create-list.component';
 // import { AccountListComponent } from './views/auth/list/account-list/account-list.component';
@@ -112,12 +114,15 @@ import { FilmDetailsComponent } from './components/film/film-details/film-detail
     // NewListComponent
     FilmListComponent,
     CardFilmsComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    RatedFilmListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
