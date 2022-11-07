@@ -5,7 +5,13 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./dashboard.component.html",
 })
 export class DashboardComponent implements OnInit {
+  login = false;
+  
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (localStorage.getItem('session_id') != null) {
+      this.login = true;
+    };
+  }
 }

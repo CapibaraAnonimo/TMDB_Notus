@@ -20,8 +20,8 @@ import { DetailsPopularFilmComponent } from './views/admin/films/details-popular
 
 const routes: Routes = [
   // default views
-  { path: '', component: AdminComponent },
-
+  { path: '', pathMatch: 'full', redirectTo: 'admin/dashboard' },
+  
   // admin views
   {
     // Cambiar a public, y cambiar todos los routerLink
@@ -36,6 +36,7 @@ const routes: Routes = [
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
+  
 
   //{ path: "private"},
 
