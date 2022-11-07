@@ -7,10 +7,10 @@ import { AccountService } from "src/app/services/account.service";
 import { LoginAuthService } from "src/app/services/login-auth.service";
 
 @Component({
-  selector: "app-user-dropdown",
-  templateUrl: "./user-dropdown.component.html",
+  selector: "app-user",
+  templateUrl: "./user.component.html",
 })
-export class UserDropdownComponent implements AfterViewInit {
+export class UserComponent implements AfterViewInit {
   dropdownPopoverShow = false;
   @ViewChild("btnDropdownRef", { static: false }) btnDropdownRef: ElementRef;
   @ViewChild("popoverDropdownRef", { static: false })

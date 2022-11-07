@@ -53,4 +53,8 @@ export class PersonListComponent implements OnInit {
       this.personList = resp.results;
     });
   }
+
+  redirect(movieId: number) {
+    return `/films/${movieId}`
+  }
 }
