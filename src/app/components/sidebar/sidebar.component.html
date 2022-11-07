@@ -56,7 +56,7 @@
       <hr class="my-4 md:min-w-full" />
       <!-- Heading -->
       <h6 class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-        Admin Layout Pages
+        Menú principal
       </h6>
       <!-- Navigation -->
 
@@ -118,6 +118,20 @@
         </li>
 
         <li class="items-center">
+          <a [routerLink]="['/admin/films']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+            #adminPerson="routerLinkActive" [ngClass]="
+            adminPerson.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            ">
+            <i class="fas fa-solid fa-users mr-2 text-sm" [ngClass]="
+            adminPerson.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "></i>
+            Películas
+          </a>
+        </li>
+
+        <li class="items-center">
           <a [routerLink]="['/admin/person-list']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
             #adminPerson="routerLinkActive" [ngClass]="
             adminPerson.isActive
@@ -131,6 +145,32 @@
           </a>
         </li>
       </ul>
+
+      <div *ngIf="login">
+        <!-- Divider -->
+        <hr class="my-4 md:min-w-full" />
+        <!-- Heading -->
+        <h6 class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+          Menú usuario
+        </h6>
+
+        <!-- Menú user -->
+        <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+          <li class="items-center">
+            <a [routerLink]="['/auth/favorites']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+              #adminDashboard="routerLinkActive" [ngClass]="
+              adminDashboard.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            ">
+              <i class="fas fa-solid fa-list mr-2" [ngClass]="
+                adminDashboard.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "></i>
+              Mis favoritas
+            </a>
+          </li>
+        </ul>
+      </div>
 
       <!-- Divider -->
       <hr class="my-4 md:min-w-full" />

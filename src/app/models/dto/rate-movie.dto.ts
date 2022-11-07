@@ -1,5 +1,5 @@
 export class RateMovieDto {
-  rate = 0;
+  rate: number = 0;
 
   constructor(rate: number) {
     this.rate = rate;

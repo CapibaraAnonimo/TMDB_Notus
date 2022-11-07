@@ -22,7 +22,6 @@ export class UserDropdownComponent implements AfterViewInit {
   userName = '';
   img = '';
   session = new CreateSessionDto();
-  loginIcon = "https://cdn-icons-png.flaticon.com/512/6177/6177784.png";
 
   constructor(private route: ActivatedRoute, private router: Router, private authService: LoginAuthService, private accountService: AccountService) { }
 
@@ -45,7 +44,7 @@ export class UserDropdownComponent implements AfterViewInit {
         this.authService.createSession(this.session).subscribe(resp => {
           this.login = true;
           localStorage.setItem('session_id', resp.session_id);
-          console.log('Session id: ' + resp.session_id);
+          //console.log('Session id: ' + resp.session_id);
 
           this.accountService.getAccountDetails().subscribe(resp => {
             this.userName = resp.username;
