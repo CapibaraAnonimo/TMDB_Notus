@@ -1,9 +1,9 @@
 <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white"
-    style="width: 65%; margin: 0 auto;" *ngIf="login">
+    style="width: 40%; margin: 0 auto;" *ngIf="login">
     <div class="rounded-t mb-0 px-4 py-3 border-0">
         <div class="flex flex-wrap items-center">
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                <h3 class="font-semibold text-lg">Mis listas</h3>
+                <h3 class="font-semibold text-lg">Mis favoritas</h3>
             </div>
 
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
@@ -22,45 +22,37 @@
                 <tr>
                     <th
                         class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-bold text-left">
-                        Nombre</th>
+                        Portada</th>
                     <th
                         class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-bold text-left">
-                        Elementos en lista</th>
+                        Título</th>
                     <th
                         class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-bold text-left">
-                        Descripción</th>
+                        Estreno</th>
                     <th
                         class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-bold text-left">
-                        Favoritos</th>
+                        Detalles</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr *ngFor="let list of allList">
+                <tr *ngFor="let movie of favorites">
+                    <td class="border-t-0 align-middle border-l-0 border-r-0 whitespace-nowrap"
+                        style="margin: 0px; padding: 0px">
+                        <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
+                            width="40%" style="margin: 0 auto; padding-bottom: 5px"/>
+                    </td>
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
-                        {{list.name}}</td>
+                        {{movie.original_title}}</td>
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
-                        {{list.item_count}}</td>
+                        {{movie.release_date}}</td>
                     <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
-                        {{list.description}}</td>
-                    <td
-                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-semibold">
-                        <button (click)="getDetails(list.id)">{{showDetails? 'Cerrar' : 'Mostrar favoritos'}}</button>
+                        <button>Ver</button>
                     </td>
                 </tr>
-
-                <div class="flex flex-wrap ml-3" *ngIf="showDetails">
-                    <div class="w-full lg:w-4/12" *ngFor="let movie of movieFavList" style="margin: 0 auto;">
-                        <div class="relative w-full mb-3">
-                            <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
-                                class="border-2 border-blueGray-50 shadow" />
-                            <p class="text-xs text-center">{{movie.title}}</p>
-                        </div>
-                    </div>
-                </div>
             </tbody>
         </table>
     </div>

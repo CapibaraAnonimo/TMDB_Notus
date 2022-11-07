@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Lists } from 'src/app/models/interfaces/list/get-list.interface';
+import { Favorites } from 'src/app/models/interfaces/list/get-list.interface';
 import { Item } from 'src/app/models/interfaces/list/list-details.interface';
 import { AccountService } from 'src/app/services/account.service';
 import { ListsService } from 'src/app/services/lists.service';
@@ -12,7 +12,7 @@ import { ListsService } from 'src/app/services/lists.service';
 export class ShowListComponent implements OnInit {
 
   account_id: number = 0;
-  allList: Lists[] = [];
+  favorites: Favorites[] = [];
   movieFavList: Item[] = [];
   numPages: number = 0;
   page: number = 1;
@@ -30,13 +30,13 @@ export class ShowListComponent implements OnInit {
       this.account_id = resp.id;
     });
 
-    this.listService.getLists(this.account_id, this.page).subscribe(resp => {
-      this.allList = resp.results;
+    this.listService.getFavorites(this.account_id, this.page).subscribe(resp => {
+      this.favorites = resp.results;
       this.numPages = resp.total_pages;
     });
   }
 
-  getDetails(list_id: number) {
+  /*getDetails(list_id: number) {
     if (this.showDetails) {
       this.showDetails = false;
     } else {
@@ -45,7 +45,7 @@ export class ShowListComponent implements OnInit {
         this.movieFavList = resp.items;
       });
     }
-  }
+  }*/
 
   showImgMovie(poster_path: string) {
     return `https://image.tmdb.org/t/p/w500/${poster_path}`;
@@ -53,15 +53,15 @@ export class ShowListComponent implements OnInit {
 
   next() {
     this.page += 1;
-    this.listService.getLists(this.account_id, this.page).subscribe(resp => {
-      this.allList = resp.results;
+    this.listService.getFavorites(this.account_id, this.page).subscribe(resp => {
+      this.favorites = resp.results;
     });
   }
 
   pre() {
     this.page -= 1;
-    this.listService.getLists(this.account_id, this.page).subscribe(resp => {
-      this.allList = resp.results;
+    this.listService.getFavorites(this.account_id, this.page).subscribe(resp => {
+      this.favorites = resp.results;
     });
   }
 }

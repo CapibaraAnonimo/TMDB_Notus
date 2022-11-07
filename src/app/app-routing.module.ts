@@ -50,8 +50,7 @@ const routes: Routes = [
     children: [
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
-      { path: "lists", component: AccountListComponent },
-      { path: "create-list", component: NewListComponent },
+      { path: "favorites", component: AccountListComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },

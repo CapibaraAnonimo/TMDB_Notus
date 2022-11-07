@@ -22,7 +22,6 @@ export class UserDropdownComponent implements AfterViewInit {
   userName = '';
   img = '';
   session = new CreateSessionDto();
-  loginIcon = "https://cdn-icons-png.flaticon.com/512/6177/6177784.png";
 
   constructor(private route: ActivatedRoute, private router: Router, private authService: LoginAuthService, private accountService: AccountService) { }
 
