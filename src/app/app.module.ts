@@ -52,8 +52,6 @@ import { PersonDetailsComponent } from './components/person/person-details/perso
 import { PersonMoviesComponent } from './components/person/person-movies/person-movies.component';
 import { ListPopularPersonComponent } from './views/admin/person/list-popular-person/list-popular-person.component';
 import { DetailsPopularPersonComponent } from './views/admin/person/details-popular-person/details-popular-person.component';
-import { FilmListComponent } from './components/film/film-list/film-list.component';
-import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
 import { ShowListComponent } from './components/list/show-list/show-list.component';
 import { CreateListComponent } from './components/list/create-list/create-list.component';
 import { AccountListComponent } from './views/auth/list/account-list/account-list.component';
@@ -102,8 +100,6 @@ import { ListPopularFilmComponent } from './views/admin/films/list-popular-film/
     PersonMoviesComponent,
     ListPopularPersonComponent,
     DetailsPopularPersonComponent,
-    FilmListComponent,
-    FilmDetailsComponent,
     ShowListComponent,
     CreateListComponent,
     AccountListComponent,

@@ -51,6 +51,7 @@ export class UserDropdownComponent implements AfterViewInit {
             this.img = `https://www.themoviedb.org/t/p/w150_and_h150_face${resp.avatar.tmdb.avatar_path}`;
           });
           window.location.href = `http://localhost:4200/admin/dashboard`;
+          //window.location.href = `https://tmdb-api-ae6f1.web.app/admin/dashboard`;
         });
       }
     });
@@ -92,6 +93,7 @@ export class UserDropdownComponent implements AfterViewInit {
           localStorage.removeItem('session_id');
           this.login = false;
           window.location.href = `http://localhost:4200/admin/dashboard`;
+          //window.location.href = `https://tmdb-api-ae6f1.web.app/admin/dashboard`;
         }
       });
     }
