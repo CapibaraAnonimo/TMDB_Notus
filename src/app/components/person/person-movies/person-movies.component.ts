@@ -4,7 +4,6 @@ import { Movie } from 'src/app/models/interfaces/movie/movie.interface';
 import { PersonDetailsResponse } from 'src/app/models/interfaces/person/person-details.interface';
 import { KnownFor, Person } from 'src/app/models/interfaces/person/person.interface';
 import { MovieService } from 'src/app/services/movie.service';
-import { PersonDetailsResponse } from 'src/app/models/interfaces/person/person-details.interface';
 import { Cast } from 'src/app/models/interfaces/person/person-movie.interface';
 import { PersonService } from 'src/app/services/person.service';
 

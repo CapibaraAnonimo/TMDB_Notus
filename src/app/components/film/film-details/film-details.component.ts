@@ -15,7 +15,7 @@ import {createPopper} from '@popperjs/core';
   styleUrls: ['./film-details.component.css']
 })
 export class FilmDetailsComponent implements OnInit {
-  film!: MovieDetailsResponse;
+  film: MovieDetailsResponse;
   releaseDate!: ReleaseDateResponse;
   id!: string;
   credit: CreditsResponse;
@@ -46,10 +46,11 @@ export class FilmDetailsComponent implements OnInit {
       this.movieService.getMovieDetails(+this.id).subscribe(details => {
         this.film = details;
         document.getElementById('bImage').style.backgroundImage = `url(${this.getImage(this.film.backdrop_path)})`;
+      });
 
-        this.movieService.getMovieReleaseDate(params.id).subscribe(releaseDate => {
-          this.releaseDate = releaseDate;
-        });
+      this.movieService.getMovieReleaseDate(params.id).subscribe(releaseDate => {
+        this.releaseDate = releaseDate;
+        debugger;
       });
 
       this.creditService.getAccountDetails(this.id).subscribe(response => {
