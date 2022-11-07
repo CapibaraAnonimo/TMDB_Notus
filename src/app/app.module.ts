@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // layouts
-import { AdminComponent } from './layouts/admin/admin.component';
-import { AuthComponent } from './layouts/auth/auth.component';
+import { PublicComponent } from './layouts/public/public.component';
+import { PrivateComponent } from './layouts/private/private.component';
 
 // admin views
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
@@ -46,8 +46,8 @@ import { UserComponent } from './components/user/user.component';
     FooterAdminComponent,
     HeaderStatsComponent,
     NavbarComponent,
-    AdminComponent,
-    AuthComponent,
+    PublicComponent,
+    PrivateComponent,
     PersonListComponent,
     PersonDetailsComponent,
     PersonMoviesComponent,

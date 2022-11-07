@@ -96,7 +96,7 @@ export class FilmDetailsComponent implements OnInit {
     this.favService.addFavorite(movieId, new AddFavoriteDto("movie", movieId, true)).subscribe(resp => {
       if(resp.status_message === 'Success.')
       alert("Película guardada en favoritos.");
-      this.router.navigate(['/auth/favorites']);
+      this.router.navigate(['/private/favorites']);
     })
   }
 }

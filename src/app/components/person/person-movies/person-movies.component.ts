@@ -6,8 +6,7 @@ import { PersonService } from 'src/app/services/person.service';
 
 @Component({
   selector: 'app-person-movies',
-  templateUrl: './person-movies.component.html',
-  styleUrls: ['./person-movies.component.css']
+  templateUrl: './person-movies.component.html'
 })
 export class PersonMoviesComponent implements OnInit {
 

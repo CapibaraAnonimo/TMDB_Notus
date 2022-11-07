@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // layouts
-import { AdminComponent } from './layouts/admin/admin.component';
-import { AuthComponent } from './layouts/auth/auth.component';
+import { PublicComponent } from './layouts/public/public.component';
+import { PrivateComponent } from './layouts/private/private.component';
 
 // admin views
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
@@ -19,14 +19,13 @@ import { ListPopularFilmComponent } from './views/admin/films/list-popular-film/
 import { DetailsPopularFilmComponent } from './views/admin/films/details-popular-film/details-popular-film.component';
 
 const routes: Routes = [
-  // default views
-  { path: '', component: AdminComponent },
+  // index view
+  { path: '', pathMatch: 'full', redirectTo: 'public/dashboard' },
 
-  // admin views
+  // public views
   {
-    // Cambiar a public, y cambiar todos los routerLink
-    path: "admin",
-    component: AdminComponent,
+    path: "public",
+    component: PublicComponent,
     children: [
       { path: "dashboard", component: DashboardComponent },
       { path: "person-list", component: ListPopularPersonComponent },
@@ -37,14 +36,13 @@ const routes: Routes = [
     ],
   },
 
-  //{ path: "private"},
-
-  // auth views
+  // private views
   {
-    path: 'auth',
-    component: AuthComponent,
+    path: 'private',
+    component: PrivateComponent,
     children: [
       { path: "favorites", component: FavoriteComponent },
+      { path: 'rated', component: RatedFilmListComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
@@ -55,8 +53,8 @@ const routes: Routes = [
       { path: '', component: FilmListComponent },
       { path: ':id', component: FilmDetailsComponent },
     ]
-  },*/
-  { path: 'rated', component: RatedFilmListComponent },
+  },
+  { path: 'rated', component: RatedFilmListComponent },*/
 ];
 
 @NgModule({

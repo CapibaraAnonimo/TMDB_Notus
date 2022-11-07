@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PersonDetailsResponse } from 'src/app/models/interfaces/person/person-details.interface';
-import { KnownFor, Person } from 'src/app/models/interfaces/person/person.interface';
+import { Person } from 'src/app/models/interfaces/person/person.interface';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
   selector: 'app-person-details',
-  templateUrl: './person-details.component.html',
-  styleUrls: ['./person-details.component.css']
+  templateUrl: './person-details.component.html'
 })
 export class PersonDetailsComponent implements OnInit {
 
