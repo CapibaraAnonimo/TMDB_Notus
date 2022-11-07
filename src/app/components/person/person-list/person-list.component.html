@@ -45,7 +45,8 @@
                     <th
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                         <img [src]="showImgPerson(person.profile_path)" class="h-12 w-12 bg-white rounded-full border"
-                            alt="Foto del actor {{person.name}}" />
+                            alt="Foto del actor {{person.name}}"
+                            onerror="this.src='https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'" />
                         <span class="ml-3 font-bold">{{person.name}}</span>
                     </th>
                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
@@ -63,8 +64,7 @@
                         </div>
                     </td>
                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <a class="font-bold"
-                            [routerLink]="['/admin/person-details', person.id]">Detalles</a>
+                        <a class="font-bold" [routerLink]="['/admin/person-details', person.id]">Detalles</a>
                     </td>
                 </tr>
             </tbody>

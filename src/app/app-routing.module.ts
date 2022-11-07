@@ -18,7 +18,7 @@ import { DetailsPopularFilmComponent } from './views/admin/films/details-popular
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
-import { AccountListComponent } from './views/auth/list/account-list/account-list.component';
+import { FavoriteComponent } from './views/auth/favorite/favorite.component';
 // import { NewListComponent } from './views/auth/list/new-list/new-list.component';
 
 // no layouts views
@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: "maps", component: MapsComponent },
       { path: "person-list", component: ListPopularPersonComponent },
       { path: "person-details/:id", component: DetailsPopularPersonComponent },
-      { path: "films", component: ListPopularFilmComponent},
+      { path: "films", component: ListPopularFilmComponent },
       { path: "films-details/:id", component: DetailsPopularFilmComponent },
 
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
@@ -57,7 +57,7 @@ const routes: Routes = [
     children: [
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
-      { path: "favorites", component: AccountListComponent },
+      { path: "favorites", component: FavoriteComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
