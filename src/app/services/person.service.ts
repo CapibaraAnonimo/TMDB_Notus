@@ -20,7 +20,7 @@ export class PersonService {
   public getPersonDetails(personId: number): Observable<PersonDetailsResponse> {
     return this.http.get<PersonDetailsResponse>(`${environment.API_BASE_URL}/person/${personId}?api_key=${environment.API_KEY_M}`)
   }
-
+  
   public getPersonMovieList(personId: number): Observable<PersonMovieResponse> {
     return this.http.get<PersonMovieResponse>(`${environment.API_BASE_URL}/person/${personId}/movie_credits?api_key=${environment.API_KEY_M}`)
   }
