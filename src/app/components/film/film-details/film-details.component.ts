@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MovieDetailsResponse} from '../../../models/interfaces/movie/movie-details.interface';
 import {ReleaseDateResponse} from '../../../models/interfaces/movie/release-date.interface';
@@ -7,8 +7,9 @@ import {CreditsService} from '../../../services/credits.service';
 import {CreditsResponse} from '../../../models/interfaces/credits/credits.interface';
 import {RatingService} from '../../../services/rating.service';
 import {RateMovieDto} from '../../../models/dto/rate-movie.dto';
-import {createPopper} from '@popperjs/core';
 import {FormBuilder} from '@angular/forms';
+import {VideosResponse} from '../../../models/interfaces/movie/movie-videos.interface';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-film-details',
@@ -21,21 +22,20 @@ export class FilmDetailsComponent implements OnInit {
   id!: string;
   credit: CreditsResponse;
   form;
-
+  videos: VideosResponse;
+  logged = false;
   popoverShow = false;
-  @ViewChild('btnRef', {static: false}) btnRef: ElementRef;
-  popper = document.createElement('div');
 
   constructor(private movieService: MovieService, private route: ActivatedRoute, private creditService: CreditsService,
-              private ratingService: RatingService, private formBuilder: FormBuilder, private router: Router) {
+              private ratingService: RatingService, private formBuilder: FormBuilder, private router: Router,
+              private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('session_id') != null) {
+      this.logged = true;
+    }
     this.form = document.getElementById('form')
-    this.popper.innerHTML = `
-
-    `;
-
 
     this.route.params.subscribe(params => {
       this.id = params.id;
@@ -50,7 +50,11 @@ export class FilmDetailsComponent implements OnInit {
 
       this.creditService.getCredits(this.id).subscribe(response => {
         this.credit = response;
-      })
+      });
+
+      this.movieService.getMovieVideos(this.id).subscribe(response => {
+        this.videos = response;
+      });
     });
   }
 
@@ -68,23 +72,14 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   togglePopover() {
-    if (this.popoverShow) {
-      this.popoverShow = false;
-      this.destroyPopper();
+    this.popoverShow = !this.popoverShow;
+  }
+
+  getVideo(key: string, site: string) {
+    if (site.toLowerCase() === 'YouTube'.toLowerCase()) {
+      return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}`);
     } else {
-      this.popoverShow = true;
-      this.createPoppper();
+      return this.sanitizer.bypassSecurityTrustResourceUrl(`https://player.vimeo.com/video/${key}`);
     }
-  }
-
-  destroyPopper() {
-    this.popper.parentNode.removeChild(this.popper);
-  }
-
-  createPoppper() {
-    createPopper(this.btnRef.nativeElement, this.popper, {
-      placement: 'bottom',
-    });
-    this.btnRef.nativeElement.parentNode.insertBefore(this.popper, this.btnRef.nativeElement.nextSibling);
   }
 }
