@@ -1,3 +1,28 @@
+# DESCRIPCIÓN:
+Página web para consultar actores y películas populares, así como la información detallada de cada uno de ellos. Si iniciamos sesión en TheMovieDB, podremos, además, guardar y consultar películas favoritas, y valorarlas para, posteriormente, poder ver las que se hayan puntuado.
+
+# AUTORES:
+## Mario Ruiz López
+https://github.com/PlayerMario
+
+## Adrián Arnáiz Cano
+https://github.com/CapibaraAnonimo
+
+# FUNCIONALIDADES
+## PÚBLICO
+[LISTADO-ACTORES](src/img/listado-actores.png)
+Listado de todos los actores guardados en la base de datos, mostrando 20 por cada página, y con la posibilidad de poder ver los detalles de sus películas más famosas, así como su información personal.
+
+[DETALLES-ACTORES](src/img/detalles-actor.png)
+Muestra la información personal de cada actor además de todas un listado de películas en las que ha participado.
+
+## PRIVADO
+Una vez iniciada la sesión, se puede acceder a:
+[PELICULAS-FAVORITAS](src/img/favoritas.png)
+Listado de todas las películas favoritas que hayan sido marcadas por el usuario. Se pueden ver los detalles de cada una.
+
+
+
 # Notus Angular <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-angular%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20Angular%20UI%20Kit%20and%20Admin.%20Let%20Notus%20Angular%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level." target="_blank">![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)</a>
 
 ![version](https://img.shields.io/badge/version-1.1.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) <a href="https://github.com/creativetimofficial/notus-angular/issues?q=is%3Aopen+is%3Aissue" target="_blank">![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/notus-angular.svg)</a> <a href="https://github.com/creativetimofficial/notus-angular/issues?q=is%3Aissue+is%3Aclosed" target="_blank">![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/notus-angular.svg)</a> <a href="https://gitter.im/creative-tim-general/Lobby" target="_blank">![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)</a> <a href="https://discord.gg/E4aHAQy" target="_blank">![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)</a>

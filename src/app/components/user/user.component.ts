@@ -50,7 +50,7 @@ export class UserComponent implements AfterViewInit {
             this.userName = resp.username;
             this.img = `https://www.themoviedb.org/t/p/w150_and_h150_face${resp.avatar.tmdb.avatar_path}`;
           });
-          window.location.href = `http://localhost:4200/admin/dashboard`;
+          window.location.href = `http://localhost:4200/public/dashboard`;
           //window.location.href = `https://tmdb-api-ae6f1.web.app/admin/dashboard`;
         });
       }
@@ -80,7 +80,7 @@ export class UserComponent implements AfterViewInit {
     this.authService.createRequestToken().subscribe(resp => {
       this.reqToken = resp.request_token;
       console.log(this.reqToken);
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin/dashboard`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/public/dashboard`;
     });
   }
 
@@ -92,7 +92,7 @@ export class UserComponent implements AfterViewInit {
         if (resp.success) {
           localStorage.removeItem('session_id');
           this.login = false;
-          window.location.href = `http://localhost:4200/admin/dashboard`;
+          window.location.href = `http://localhost:4200/public/dashboard`;
           //window.location.href = `https://tmdb-api-ae6f1.web.app/admin/dashboard`;
         }
       });

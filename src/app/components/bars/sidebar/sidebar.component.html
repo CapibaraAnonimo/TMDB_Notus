@@ -25,7 +25,7 @@
       <!-- Navigation -->
       <ul class="md:flex-col md:min-w-full flex flex-col list-none">
         <li class="items-center">
-          <a [routerLink]="['/admin/dashboard']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+          <a [routerLink]="['/public/dashboard']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
             #adminDashboard="routerLinkActive" [ngClass]="
               adminDashboard.isActive
                 ? 'text-red-600 hover:text-red-700'
@@ -39,7 +39,7 @@
         </li>
 
         <li class="items-center">
-          <a [routerLink]="['/admin/films']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+          <a [routerLink]="['/public/films']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
             #adminFilm="routerLinkActive" [ngClass]="
             adminFilm.isActive
                 ? 'text-red-600 hover:text-red-700'
@@ -53,7 +53,7 @@
         </li>
 
         <li class="items-center">
-          <a [routerLink]="['/admin/person-list']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+          <a [routerLink]="['/public/person-list']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
             #adminPerson="routerLinkActive" [ngClass]="
             adminPerson.isActive
                 ? 'text-red-600 hover:text-red-700'
@@ -80,7 +80,7 @@
         <!-- Menú user -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
           <li class="items-center">
-            <a [routerLink]="['/auth/favorites']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+            <a [routerLink]="['/private/favorites']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
               #adminDashboard="routerLinkActive" [ngClass]="
               adminDashboard.isActive
                 ? 'text-red-600 hover:text-red-700'
@@ -94,7 +94,7 @@
           </li>
 
           <li class="items-center">
-            <a [routerLink]="['/rated']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+            <a [routerLink]="['/private/rated']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
               #adminDashboard="routerLinkActive" [ngClass]="
               adminDashboard.isActive
                 ? 'text-red-600 hover:text-red-700'

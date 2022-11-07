@@ -5,8 +5,7 @@ import { FavService } from 'src/app/services/fav.service';
 
 @Component({
   selector: 'app-favorite-list',
-  templateUrl: './fav-list.component.html',
-  styleUrls: ['./fav-list.component.css']
+  templateUrl: './fav-list.component.html'
 })
 export class FavListComponent implements OnInit {
 

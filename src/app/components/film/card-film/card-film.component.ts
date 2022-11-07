@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../../models/interfaces/movie/movie.interface';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-films',
