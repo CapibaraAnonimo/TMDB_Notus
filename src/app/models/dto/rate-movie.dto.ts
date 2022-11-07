@@ -1,7 +1,7 @@
 export class RateMovieDto {
-  rate: number = 0;
+  value = 0;
 
   constructor(rate: number) {
-    this.rate = rate;
+    this.value = rate;
   }
 }
