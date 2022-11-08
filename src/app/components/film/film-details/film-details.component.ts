@@ -22,7 +22,6 @@ export class FilmDetailsComponent implements OnInit {
   releaseDate!: ReleaseDateResponse;
   id!: string;
   credit: CreditsResponse;
-  form;
   videos: VideosResponse;
   popoverShow = false;
   login = false;
@@ -40,7 +39,6 @@ export class FilmDetailsComponent implements OnInit {
     if (localStorage.getItem('session_id') != null) {
       this.login = true;
     };
-    this.form = document.getElementById('form')
     this.route.params.subscribe(params => {
       this.id = params.id;
       this.movieService.getMovieDetails(+this.id).subscribe(details => {
@@ -87,6 +85,7 @@ export class FilmDetailsComponent implements OnInit {
       alert('Not a valid rate');
     } else {
       this.ratingService.rateMovie(this.id, new RateMovieDto(+rate)).subscribe(response => {
+        alert('Película valorada correctamente.')
       });
     }
   }

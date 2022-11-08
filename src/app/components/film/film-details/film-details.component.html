@@ -30,7 +30,7 @@
                   <i class="far fa-star text-xl"></i>
                 </button>
 
-                <button (click)="addFavorite(film.id)" *ngIf="login"
+                <button (click)="addFavorite(film.id)"
                   class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 rounded-full">
                   <i [class]="isFav? 'fas fa-solid fa-heart text-xl' : 'far fa-heart text-xl'"></i>
                 </button>
@@ -38,7 +38,6 @@
               <div *ngIf="popoverShow"
                 class="bg-red-600 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg">
                 <div>
-
                   <div
                     class="bg-red-600 text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-blueGray-100 uppercase rounded-t-lg">
                     Rate this movie
@@ -47,9 +46,9 @@
                     <div class="mb-3 pt-0 flex flex-col">
                       <label>Rate between 0.5 and 10</label>
                       <input #rated type="number" min="0.5" max="10" step="0.5" placeholder="Your rate" name="rate"
-                             class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                        class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full" />
                       <button type="button" (click)="rateFilm(rated.value)"
-                              class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                        class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                         Submit
                       </button>
                     </div>
