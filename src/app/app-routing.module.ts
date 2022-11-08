@@ -14,6 +14,12 @@ import { FilmDetailsComponent } from './components/film/film-details/film-detail
 import { RatedFilmListComponent } from './components/film/rated-film-list/rated-film-list.component';
 
 // auth views
+import { LoginComponent } from './views/auth/login/login.component';
+import { RegisterComponent } from './views/auth/register/register.component';
+// import { AccountListComponent } from './views/auth/list/account-list/account-list.component';
+// import { NewListComponent } from './views/auth/list/new-list/new-list.component';
+
+// no layouts views
 import { FavoriteComponent } from './views/auth/favorite/favorite.component';
 import { ListPopularFilmComponent } from './views/admin/films/list-popular-film/list-popular-film.component';
 import { DetailsPopularFilmComponent } from './views/admin/films/details-popular-film/details-popular-film.component';
@@ -46,15 +52,6 @@ const routes: Routes = [
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
-
-  // no layout views
-  /*{
-    path: 'films', children: [
-      { path: '', component: FilmListComponent },
-      { path: ':id', component: FilmDetailsComponent },
-    ]
-  },
-  { path: 'rated', component: RatedFilmListComponent },*/
 ];
 
 @NgModule({
