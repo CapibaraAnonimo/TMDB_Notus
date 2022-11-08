@@ -10,7 +10,6 @@ import { RateMovieDto } from '../../../models/dto/rate-movie.dto';
 import { createPopper } from '@popperjs/core';
 import { FavService } from 'src/app/services/fav.service';
 import { AddFavoriteDto } from 'src/app/models/dto/add-fav-dto';
-//import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-film-details',
@@ -33,7 +32,7 @@ export class FilmDetailsComponent implements OnInit {
   popper = document.createElement('div');
 
   constructor(private movieService: MovieService, private route: ActivatedRoute, private creditService: CreditsService,
-    private ratingService: RatingService, /*private formBuilder: FormBuilder,*/ private router: Router, private favService: FavService) {
+    private ratingService: RatingService, private favService: FavService) {
   }
 
   ngOnInit(): void {
