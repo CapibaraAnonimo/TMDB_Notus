@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // layouts
-import { AdminComponent } from './layouts/admin/admin.component';
-import { AuthComponent } from './layouts/auth/auth.component';
+import { PublicComponent } from './layouts/public/public.component';
+import { PrivateComponent } from './layouts/private/private.component';
 
 // admin views
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
-import { MapsComponent } from './views/admin/maps/maps.component';
 import { DetailsPopularPersonComponent } from './views/admin/person/details-popular-person/details-popular-person.component';
 import { ListPopularPersonComponent } from './views/admin/person/list-popular-person/list-popular-person.component';
-import { SettingsComponent } from './views/admin/settings/settings.component';
-import { TablesComponent } from './views/admin/tables/tables.component';
+import { FilmListComponent } from './components/film/film-list/film-list.component';
+import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
+import { RatedFilmListComponent } from './components/film/rated-film-list/rated-film-list.component';
 
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
@@ -20,56 +20,38 @@ import { RegisterComponent } from './views/auth/register/register.component';
 // import { NewListComponent } from './views/auth/list/new-list/new-list.component';
 
 // no layouts views
-import { IndexComponent } from './views/index/index.component';
-import { LandingComponent } from './views/landing/landing.component';
-import { ProfileComponent } from './views/profile/profile.component';
-import {FilmListComponent} from './components/film/film-list/film-list.component';
-import {FilmDetailsComponent} from './components/film/film-details/film-details.component';
-import {RatedFilmListComponent} from './components/film/rated-film-list/rated-film-list.component';
+import { FavoriteComponent } from './views/auth/favorite/favorite.component';
+import { ListPopularFilmComponent } from './views/admin/films/list-popular-film/list-popular-film.component';
+import { DetailsPopularFilmComponent } from './views/admin/films/details-popular-film/details-popular-film.component';
 
 const routes: Routes = [
-  // admin views
+  // index view
+  { path: '', pathMatch: 'full', redirectTo: 'public/dashboard' },
+
+  // public views
   {
-    // Cambiar a public, y cambiar todos los routerLink
-    path: "admin",
-    component: AdminComponent,
+    path: "public",
+    component: PublicComponent,
     children: [
       { path: "dashboard", component: DashboardComponent },
-      { path: "settings", component: SettingsComponent },
-      { path: "tables", component: TablesComponent },
-      { path: "maps", component: MapsComponent },
       { path: "person-list", component: ListPopularPersonComponent },
       { path: "person-details/:id", component: DetailsPopularPersonComponent },
+      { path: "films", component: ListPopularFilmComponent },
+      { path: 'film-details/:id', component: DetailsPopularFilmComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
 
-  //{ path: "private"},
-
-  // auth views
+  // private views
   {
-    path: 'auth',
-    component: AuthComponent,
+    path: 'private',
+    component: PrivateComponent,
     children: [
-      { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent },
-      // { path: "lists", component: AccountListComponent },
-      // { path: "create-list", component: NewListComponent },
+      { path: "favorites", component: FavoriteComponent },
+      { path: 'rated', component: RatedFilmListComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
-
-  // no layout views
-  { path: 'profile', component: ProfileComponent },
-  { path: 'landing', component: LandingComponent },
-  { path: 'films', children: [
-      {path: '', component: FilmListComponent},
-      {path: ':id', component: FilmDetailsComponent},
-    ]},
-  { path: 'rated', component: RatedFilmListComponent },
-  { path: '', component: IndexComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
-
 ];
 
 @NgModule({

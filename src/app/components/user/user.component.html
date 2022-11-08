@@ -1,0 +1,42 @@
+<button class="text-blueGray-500 block" (click)="login? toggleDropdown($event) : requestToken()" #btnDropdownRef>
+  <div *ngIf="login" class="items-center flex">
+    <p class="font-bold text-white mr-2">{{userName}}</p>
+    <span class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
+      <img alt="Foto de perfil de usuario"
+        [ngClass]="login? 'w-full rounded-full align-middle border-none shadow-lg' :  '' " [src]="img" />
+    </span>
+  </div>
+  <div *ngIf="!login" class="items-center flex">
+    <span class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
+      <i class="fas fa-solid fa-user text-black"></i>
+    </span>
+  </div>
+</button>
+
+<div class="min-w-48 z-50" #popoverDropdownRef>
+  <div class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
+    [ngClass]="dropdownPopoverShow ? 'block' : 'hidden'">
+    <p class="text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent text-blueGray-700 font-bold">
+      Bienvenido {{userName}}
+    </p>
+
+    <button [routerLink]="['/private/favorites']"
+      class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+      <i class="fas fa-solid fa-heart"></i>
+      Mis favoritas
+    </button>
+
+    <button [routerLink]="['/private/rated']"
+      class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+      <i class="fas fa-solid fa-star"></i>
+      Valoradas
+    </button>
+
+    <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
+    <button (click)="closeSession()"
+      class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+      <i class="fas fa-sign-out-alt mr-2"></i>
+      Cerrar sesión
+    </button>
+  </div>
+</div>

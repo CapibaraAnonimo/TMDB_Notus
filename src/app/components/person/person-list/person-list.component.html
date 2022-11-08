@@ -8,7 +8,7 @@
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                 <button class="m-2 p-2 font-semibold rounded-lg" *ngIf="page > 1" type="submit"
                     (click)="pre()">Anterior</button>
-                <button class="m-2 p-1 font-semibold">{{page}}</button>
+                <button class="m-2 p-1 font-semibold">{{page}} - {{numPages}}</button>
                 <button class="m-2 p-2 font-semibold rounded-lg" *ngIf="page < numPages" type="submit"
                     (click)="next()">Siguiente</button>
             </div>
@@ -44,8 +44,9 @@
                 <tr *ngFor="let person of personList">
                     <th
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                        <img [src]="showImgPerson(person.profile_path)" class="h-12 w-12 bg-white rounded-full border"
-                            alt="Foto del actor {{person.name}}" />
+                        <img [src]="showImgPerson(person.profile_path)" class="h-16 w-16 bg-white border"
+                            alt="Foto del actor {{person.name}}"
+                            onerror="this.src='https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'" />
                         <span class="ml-3 font-bold">{{person.name}}</span>
                     </th>
                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
@@ -57,14 +58,18 @@
                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex">
                             <p *ngFor="let movie of person.known_for">
-                                <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
-                                    class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow" />
+                                <a [routerLink]="['/public/film-details', movie.id]">
+                                    <img [src]="showImgMovie(movie.poster_path)" alt="Portada película {{movie.title}}"
+                                        class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
+                                        onerror="this.src='https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg'" />
+                                </a>
                             </p>
                         </div>
                     </td>
                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <a class="font-bold"
-                            [routerLink]="['/admin/person-details', person.id]">Detalles</a>
+                        <a class="font-bold" [routerLink]="['/public/person-details', person.id]">
+                            <i class="fas fa-solid fa-eye text-lg"></i>
+                        </a>
                     </td>
                 </tr>
             </tbody>

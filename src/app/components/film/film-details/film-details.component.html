@@ -84,10 +84,14 @@
                   Cast
                 </h3>
                 <div class="overflow-x-auto flex flex-row">
-                  <div class="max-w-200-px m-2" style="min-width: 200px" *ngFor="let cast of credit.cast | slice:0:9">
-                    <img alt="{{cast.name}} image" [src]="getImage(cast.profile_path)" class="rounded-t-lg">
-                    <p>{{cast.name}}</p>
-                  </div>
+                  <div class="max-w-200-px m-2" style="min-width: 200px"
+                                        *ngFor="let cast of credit.cast | slice:0:9">
+                                        <a class="font-bold" [routerLink]="['/public/person-details', cast.id]">
+                                            <img [src]="getImage(cast.profile_path)" class="rounded-t-lg"
+                                                onerror="this.src='https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'">
+                                            <p>{{cast.name}}</p>
+                                        </a>
+                                    </div>
                 </div>
 
                 <h3 class="text-2xl">
@@ -101,9 +105,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </main>

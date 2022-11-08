@@ -10,6 +10,8 @@ import {RateMovieDto} from '../../../models/dto/rate-movie.dto';
 import {FormBuilder} from '@angular/forms';
 import {VideosResponse} from '../../../models/interfaces/movie/movie-videos.interface';
 import {DomSanitizer} from '@angular/platform-browser';
+import { FavService } from 'src/app/services/fav.service';
+import { AddFavoriteDto } from 'src/app/models/dto/add-fav-dto';
 
 @Component({
   selector: 'app-film-details',
@@ -23,8 +25,11 @@ export class FilmDetailsComponent implements OnInit {
   credit: CreditsResponse;
   form;
   videos: VideosResponse;
-  logged = false;
   popoverShow = false;
+  login = false;
+  popoverShow = false;
+  @ViewChild('btnRef', { static: false }) btnRef: ElementRef;
+  popper = document.createElement('div');
 
   constructor(private movieService: MovieService, private route: ActivatedRoute, private creditService: CreditsService,
               private ratingService: RatingService, private formBuilder: FormBuilder, private router: Router,
@@ -33,10 +38,9 @@ export class FilmDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('session_id') != null) {
-      this.logged = true;
-    }
+      this.login = true;
+    };
     this.form = document.getElementById('form')
-
     this.route.params.subscribe(params => {
       this.id = params.id;
       this.movieService.getMovieDetails(+this.id).subscribe(details => {
@@ -56,6 +60,8 @@ export class FilmDetailsComponent implements OnInit {
         this.videos = response;
       });
     });
+
+    
   }
 
   getImage(url: string) {
@@ -81,5 +87,13 @@ export class FilmDetailsComponent implements OnInit {
     } else {
       return this.sanitizer.bypassSecurityTrustResourceUrl(`https://player.vimeo.com/video/${key}`);
     }
+  }
+
+  addFavorite(movieId: number) {
+    this.favService.addFavorite(movieId, new AddFavoriteDto("movie", movieId, true)).subscribe(resp => {
+      if(resp.status_message === 'Success.')
+      alert("Película guardada en favoritos.");
+      this.router.navigate(['/private/favorites']);
+    })
   }
 }

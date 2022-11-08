@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {MovieService} from '../../../services/movie.service';
-import {Movie} from '../../../models/interfaces/movie/movie.interface';
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../../../services/movie.service';
+import { Movie } from '../../../models/interfaces/movie/movie.interface';
 
 @Component({
   selector: 'app-film-list',
@@ -21,5 +21,4 @@ export class FilmListComponent implements OnInit {
       this.films = response.results;
     })
   }
-
 }

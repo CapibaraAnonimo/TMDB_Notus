@@ -4,7 +4,6 @@ import {RatedMovie} from '../../../models/interfaces/movie/movies-rated.interfac
 import {MovieService} from '../../../services/movie.service';
 import {AccountService} from '../../../services/account.service';
 
-
 @Component({
   selector: 'app-rated-film-list',
   templateUrl: './rated-film-list.component.html',
@@ -24,5 +23,4 @@ export class RatedFilmListComponent implements OnInit {
         this.films = response.results;
       });
   }
-
 }
