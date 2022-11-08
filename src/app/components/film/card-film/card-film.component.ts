@@ -9,7 +9,7 @@ import { Movie } from '../../../models/interfaces/movie/movie.interface';
 export class CardFilmsComponent implements OnInit {
   @Input() film: Movie;
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit(): void {
