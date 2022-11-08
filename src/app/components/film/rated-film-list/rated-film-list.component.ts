@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { RatedMovie } from '../../../models/interfaces/movie/movies-rated.interface';
-import { MovieService } from '../../../services/movie.service';
-import { AccountService } from '../../../services/account.service';
-
+import {Component, OnInit} from '@angular/core';
+import {Movie} from '../../../models/interfaces/movie/movie.interface';
+import {RatedMovie} from '../../../models/interfaces/movie/movies-rated.interface';
+import {MovieService} from '../../../services/movie.service';
+import {AccountService} from '../../../services/account.service';
 
 @Component({
   selector: 'app-rated-film-list',
@@ -18,9 +18,9 @@ export class RatedFilmListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filmService.getRatedMovies(this.currentPage, localStorage.getItem('session_id')).subscribe(response => {
-      this.pages = response.total_pages;
-      this.films = response.results;
-    });
+      this.filmService.getRatedMovies(this.currentPage, localStorage.getItem('session_id')).subscribe(response => {
+        this.pages = response.total_pages;
+        this.films = response.results;
+      });
   }
 }
