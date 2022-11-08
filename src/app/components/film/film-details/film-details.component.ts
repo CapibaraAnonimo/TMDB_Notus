@@ -1,15 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {MovieDetailsResponse} from '../../../models/interfaces/movie/movie-details.interface';
-import {ReleaseDateResponse} from '../../../models/interfaces/movie/release-date.interface';
-import {MovieService} from '../../../services/movie.service';
-import {CreditsService} from '../../../services/credits.service';
-import {CreditsResponse} from '../../../models/interfaces/credits/credits.interface';
-import {RatingService} from '../../../services/rating.service';
-import {RateMovieDto} from '../../../models/dto/rate-movie.dto';
-import {FormBuilder} from '@angular/forms';
-import {VideosResponse} from '../../../models/interfaces/movie/movie-videos.interface';
-import {DomSanitizer} from '@angular/platform-browser';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MovieDetailsResponse } from '../../../models/interfaces/movie/movie-details.interface';
+import { ReleaseDateResponse } from '../../../models/interfaces/movie/release-date.interface';
+import { MovieService } from '../../../services/movie.service';
+import { CreditsService } from '../../../services/credits.service';
+import { CreditsResponse } from '../../../models/interfaces/credits/credits.interface';
+import { RatingService } from '../../../services/rating.service';
+import { RateMovieDto } from '../../../models/dto/rate-movie.dto';
+import { VideosResponse } from '../../../models/interfaces/movie/movie-videos.interface';
+import { DomSanitizer } from '@angular/platform-browser';
 import { FavService } from 'src/app/services/fav.service';
 import { AddFavoriteDto } from 'src/app/models/dto/add-fav-dto';
 
@@ -23,27 +22,23 @@ export class FilmDetailsComponent implements OnInit {
   releaseDate!: ReleaseDateResponse;
   id!: string;
   credit: CreditsResponse;
-  form;
   videos: VideosResponse;
   popoverShow = false;
   login = false;
   account_id: number = 0;
   page: number = 1;
   isFav = false;
-  popoverShow = false;
   @ViewChild('btnRef', { static: false }) btnRef: ElementRef;
   popper = document.createElement('div');
 
   constructor(private movieService: MovieService, private route: ActivatedRoute, private creditService: CreditsService,
-              private ratingService: RatingService, private formBuilder: FormBuilder, private router: Router,
-              private sanitizer: DomSanitizer) {
+    private ratingService: RatingService, private sanitizer: DomSanitizer, private favService: FavService) {
   }
 
   ngOnInit(): void {
     if (localStorage.getItem('session_id') != null) {
       this.login = true;
     };
-    this.form = document.getElementById('form')
     this.route.params.subscribe(params => {
       this.id = params.id;
       this.movieService.getMovieDetails(+this.id).subscribe(details => {
@@ -90,6 +85,7 @@ export class FilmDetailsComponent implements OnInit {
       alert('Not a valid rate');
     } else {
       this.ratingService.rateMovie(this.id, new RateMovieDto(+rate)).subscribe(response => {
+        alert('Película valorada correctamente.')
       });
     }
   }

@@ -4,9 +4,9 @@
       <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
     </div>
     <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
-         style="transform: translateZ(0)">
+      style="transform: translateZ(0)">
       <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
-           version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+        version="1.1" viewBox="0 0 2560 100" x="0" y="0">
         <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
       </svg>
     </div>
@@ -19,26 +19,25 @@
             <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
               <div class="relative">
                 <img alt="..." [src]="getImage(film.poster_path)"
-                     class="shadow-xl h-auto align-middle border-none absolute -m-24 -ml-20 lg:-ml-16 max-w-150-px"/>
+                  class="shadow-xl h-auto align-middle border-none absolute -m-24 -ml-20 lg:-ml-16 max-w-150-px" />
               </div>
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
-              <div class="py-6 px-3 mt-32 sm:mt-0" *ngIf="logged">
+              <div class="py-6 px-3 mt-32 sm:mt-0" *ngIf="login">
                 <button #btnRef (click)="togglePopover()"
-                        class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 rounded-full"
-                        type="button">
+                  class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 rounded-full"
+                  type="button">
                   <i class="far fa-star text-xl"></i>
                 </button>
 
-                                <button (click)="addFavorite(film.id)" *ngIf="login"
-                                    class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 rounded-full">
-                                    <i [class]="isFav? 'fas fa-solid fa-heart text-xl' : 'far fa-heart text-xl'"></i>
-                                </button>
-                            </div>
-                            <div *ngIf="popoverShow"
-                                class="bg-red-600 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg">
-                                <div>
-
+                <button (click)="addFavorite(film.id)"
+                  class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 rounded-full">
+                  <i [class]="isFav? 'fas fa-solid fa-heart text-xl' : 'far fa-heart text-xl'"></i>
+                </button>
+              </div>
+              <div *ngIf="popoverShow"
+                class="bg-red-600 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg">
+                <div>
                   <div
                     class="bg-red-600 text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-blueGray-100 uppercase rounded-t-lg">
                     Rate this movie
@@ -47,9 +46,9 @@
                     <div class="mb-3 pt-0 flex flex-col">
                       <label>Rate between 0.5 and 10</label>
                       <input #rated type="number" min="0.5" max="10" step="0.5" placeholder="Your rate" name="rate"
-                             class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                        class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full" />
                       <button type="button" (click)="rateFilm(rated.value)"
-                              class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                        class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                         Submit
                       </button>
                     </div>
@@ -57,8 +56,6 @@
                 </div>
               </div>
             </div>
-
-
             <div class="w-full lg:w-4/12 px-4 lg:order-1">
               <div class="flex justify-center py-4 lg:pt-4 pt-8">
               </div>
@@ -84,14 +81,13 @@
                   Cast
                 </h3>
                 <div class="overflow-x-auto flex flex-row">
-                  <div class="max-w-200-px m-2" style="min-width: 200px"
-                                        *ngFor="let cast of credit.cast | slice:0:9">
-                                        <a class="font-bold" [routerLink]="['/public/person-details', cast.id]">
-                                            <img [src]="getImage(cast.profile_path)" class="rounded-t-lg"
-                                                onerror="this.src='https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'">
-                                            <p>{{cast.name}}</p>
-                                        </a>
-                                    </div>
+                  <div class="max-w-200-px m-2" style="min-width: 200px" *ngFor="let cast of credit.cast | slice:0:9">
+                    <a class="font-bold" [routerLink]="['/public/person-details', cast.id]">
+                      <img [src]="getImage(cast.profile_path)" class="rounded-t-lg"
+                        onerror="this.src='https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'">
+                      <p>{{cast.name}}</p>
+                    </a>
+                  </div>
                 </div>
 
                 <h3 class="text-2xl">
@@ -105,6 +101,9 @@
                 </div>
               </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </main>

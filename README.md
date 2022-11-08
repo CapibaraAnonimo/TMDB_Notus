@@ -8,19 +8,8 @@ https://github.com/PlayerMario
 ## Adrián Arnáiz Cano
 https://github.com/CapibaraAnonimo
 
-# FUNCIONALIDADES
-## PÚBLICO
-[LISTADO-ACTORES](src/img/listado-actores.png)
-Listado de todos los actores guardados en la base de datos, mostrando 20 por cada página, y con la posibilidad de poder ver los detalles de sus películas más famosas, así como su información personal.
-
-[DETALLES-ACTORES](src/img/detalles-actor.png)
-Muestra la información personal de cada actor además de todas un listado de películas en las que ha participado.
-
-## PRIVADO
-Una vez iniciada la sesión, se puede acceder a:
-[PELICULAS-FAVORITAS](src/img/favoritas.png)
-Listado de todas las películas favoritas que hayan sido marcadas por el usuario. Se pueden ver los detalles de cada una.
-
+# PÁGINA WEB:
+https://tmdb-api-ae6f1.web.app
 
 
 # Notus Angular <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-angular%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20Angular%20UI%20Kit%20and%20Admin.%20Let%20Notus%20Angular%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level." target="_blank">![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)</a>

@@ -59,16 +59,13 @@ import { UserComponent } from './components/user/user.component';
     ListPopularFilmComponent,
     FilmDetailsComponent,
     FilmListComponent,
-    CardFilmsComponent,
-    FilmDetailComponent,
-    RatedFilmListComponent
+    RatedFilmListComponent,
+    CardFilmsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

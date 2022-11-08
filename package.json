@@ -28,6 +28,7 @@
     "@popperjs/core": "2.4.4",
     "@tailwindcss/forms": "0.2.1",
     "chart.js": "2.9.4",
+    "firebase": "^9.13.0",
     "rxjs": "6.6.6",
     "tailwindcss": "2.0.4",
     "tslib": "2.1.0",
