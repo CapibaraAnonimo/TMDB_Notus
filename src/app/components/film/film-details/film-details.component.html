@@ -30,14 +30,14 @@
                   <i class="far fa-star text-xl"></i>
                 </button>
 
-                <button
-                  class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 rounded-full">
-                  <i class="far fa-heart text-xl"></i>
-                </button>
-              </div>
-              <div *ngIf="popoverShow"
-                   class="bg-red-600 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg">
-                <div>
+                                <button (click)="addFavorite(film.id)" *ngIf="login"
+                                    class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 rounded-full">
+                                    <i [class]="isFav? 'fas fa-solid fa-heart text-xl' : 'far fa-heart text-xl'"></i>
+                                </button>
+                            </div>
+                            <div *ngIf="popoverShow"
+                                class="bg-red-600 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg">
+                                <div>
 
                   <div
                     class="bg-red-600 text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-blueGray-100 uppercase rounded-t-lg">

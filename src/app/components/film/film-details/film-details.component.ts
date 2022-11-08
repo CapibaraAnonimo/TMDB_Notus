@@ -27,6 +27,9 @@ export class FilmDetailsComponent implements OnInit {
   videos: VideosResponse;
   popoverShow = false;
   login = false;
+  account_id: number = 0;
+  page: number = 1;
+  isFav = false;
   popoverShow = false;
   @ViewChild('btnRef', { static: false }) btnRef: ElementRef;
   popper = document.createElement('div');
@@ -61,7 +64,21 @@ export class FilmDetailsComponent implements OnInit {
       });
     });
 
-    
+    if (localStorage.getItem('session_id') != null) {
+      this.login = true;
+    };
+
+    this.favService.getFavorites(this.account_id, this.page).subscribe(resp => {
+      for (let i = 1; i <= resp.total_pages; i++) {
+        this.favService.getFavorites(this.account_id, i).subscribe(movies => {
+          for (let j = 0; j < movies.results.length; j++) {
+            if (movies.results[j].id === parseInt(this.id)) {
+              this.isFav = true;
+            }
+          }
+        })
+      }
+    });
   }
 
   getImage(url: string) {
@@ -90,10 +107,20 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   addFavorite(movieId: number) {
-    this.favService.addFavorite(movieId, new AddFavoriteDto("movie", movieId, true)).subscribe(resp => {
-      if(resp.status_message === 'Success.')
-      alert("Película guardada en favoritos.");
-      this.router.navigate(['/private/favorites']);
-    })
+    if (!this.isFav) {
+      this.favService.addFavorite(movieId, new AddFavoriteDto("movie", movieId, true)).subscribe(resp => {
+        if (resp.status_message === 'Success.') {
+          alert("Película guardada en favoritos.");
+          location.reload();
+        }
+      });
+    } else {
+      this.favService.addFavorite(movieId, new AddFavoriteDto("movie", movieId, false)).subscribe(resp => {
+        if (resp.status_message !== 'Success.') {
+          alert("Película eliminada de favoritos.");
+          location.reload();
+        }
+      });
+    }
   }
 }
