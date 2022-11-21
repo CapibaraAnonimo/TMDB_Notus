@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "tmdb-api-ae6f1"
-  }
+    "default": "tmdb-firebase-aa74d",
+    "TMDB-FireBase": "tmdb-firebase-aa74d"
+  },
+  "targets": {},
+  "etags": {}
 }

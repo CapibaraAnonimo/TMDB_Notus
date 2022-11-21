@@ -34,6 +34,8 @@ import { FooterSmallComponent } from './components/footers/footer-small/footer-s
 import { HeaderStatsComponent } from './components/headers/header-stats/header-stats.component';
 import { SidebarComponent } from './components/bars/sidebar/sidebar.component';
 import { UserComponent } from './components/user/user.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { UserComponent } from './components/user/user.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
